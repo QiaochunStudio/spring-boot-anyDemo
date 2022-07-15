@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: demo-spring-boot-generator
+  profiles:
+    active: dev
+  freemarker:
+    check-template-location: false
+
+
+

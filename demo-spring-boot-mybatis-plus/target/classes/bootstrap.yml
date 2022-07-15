@@ -1,0 +1,33 @@
+# Tomcat
+server:
+  port: 7700
+
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: platform-example
+  profiles:
+    # 环境配置
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: ${NACOS-HOST:1.15.180.153}:${NACOS-PORT:8848}
+        group: DEFAULT_GROUP
+        namespace: demo-hjt
+        metadata:
+          version: 2
+      config:
+        group: DEFAULT_GROUP
+        namespace: demo-hjt
+        # 配置中心地址
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        # 配置文件格式
+        file-extension: yml
+        # 共享配置
+#        shared-configs[0]:
+#          data-id: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+#          group: ${spring.cloud.nacos.config.group}
+#          namespace: ${spring.cloud.nacos.config.namespace}

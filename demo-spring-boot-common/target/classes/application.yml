@@ -1,0 +1,12 @@
+knife4j:
+  enable: true
+  # 开启生产环境屏蔽  true 关闭swagger   false 开启swagger
+  production: true
+
+  #开启swagger访问需要密码配置
+#  basic:
+#      enable: true
+#      # Basic认证用户名
+#      username: test
+#      # Basic认证密码
+#      password: 123

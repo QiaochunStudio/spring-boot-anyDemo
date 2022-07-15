@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hjt</groupId>
+    <artifactId>springboot-project-demo</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0.RELEASE</version>
+    <description>hjt demo 案例</description>
+
+
+    <properties>
+        <spring-boot.version>2.5.6</spring-boot.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-boot-version>2.3.7.RELEASE</spring-boot-version>
+        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
+
+    </properties>
+
+
+    <!--模块-->
+    <modules>
+        <module>demo-spring-boot-mybatis-plus</module>
+        <module>demo-spring-boot-common</module>
+        <module>demo-spring-boot-bom</module>
+        <module>demo-spring-boot-core</module>
+        <module>demo-spring-boot-security</module>
+        <module>demo-spring-boot-redis</module>
+        <module>demo-spring-boot-api</module>
+        <module>demo-spring-boot-log</module>
+        <module>demo-spring-boot-gateway</module>
+        <module>demo-spring-boot-example</module>
+        <module>demo-spring-boot-generator</module>
+        <module>demo-spring-boot-druid</module>
+    </modules>
+
+    <name>spring-boot-project-demo</name>
+    <dependencies>
+        <!--Lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <!--自己的引入核心依赖 版本控制-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-bom</artifactId>
+                <version>1.0.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+           <!-- springboot通用版本控制-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.spring.platform</groupId>
+                <artifactId>platform-bom</artifactId>
+                <version>Cairo-SR8</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--一下两个是微服务整体版本控制，缺一不可-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <!--jdk版本设置为8,避免遇到版本jdk变为1.5问题-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>aliyun-public</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+        <repository>
+            <id>aliyun-central</id>
+            <url>https://maven.aliyun.com/repository/central</url>
+        </repository>
+        <repository>
+            <id>aliyun-spring</id>
+            <url>https://maven.aliyun.com/repository/spring</url>
+        </repository>
+        <repository>
+            <id>aliyun-google</id>
+            <url>https://maven.aliyun.com/repository/google</url>
+        </repository>
+        <repository>
+            <id>spring-release</id>
+            <url>https://repo.spring.io/release</url>
+        </repository>
+        <repository>
+            <id>spring-milestone</id>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
+
+    <!--打包到自己的依赖-->
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>hjt-maven-release</name>
+            <url>http://1.15.180.135:8081/repository/hjt-maven-release/</url>
+        </repository>
+        <!--        <snapshotRepository>-->
+        <!--            <id>yusui-snapshots</id>-->
+        <!--            <name>Release Repository</name>-->
+        <!--            <url>http://192.168.1.80:8800/repository/yusui-snapshots/</url>-->
+        <!--        </snapshotRepository>-->
+        <!--        <repository>-->
+        <!--            <id>nexus</id>-->
+        <!--            <name>maven-releases</name>-->
+        <!--            <url>http://192.168.1.48:8081/repository/maven-releases/</url>-->
+        <!--        </repository>-->
+        <!--        &lt;!&ndash;快照版本 若需要稳定版也有依赖 可同样加上这个snapshotRepository标签&ndash;&gt;-->
+        <!--        <snapshotRepository>-->
+        <!--            <id>nexus</id>-->
+        <!--            <name>maven-snapshots</name>-->
+        <!--            <url>http://192.168.1.48:8081/repository/maven-snapshots/</url>-->
+        <!--        </snapshotRepository>-->
+    </distributionManagement>
+
+
+</project>

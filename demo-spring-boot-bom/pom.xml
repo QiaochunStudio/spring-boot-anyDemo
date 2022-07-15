@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.7.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>demo-spring-boot-bom</artifactId>
+    <groupId>com.hjt</groupId>
+    <name>${project.artifactId}</name>
+    <version>1.0.0.RELEASE</version>
+    <packaging>pom</packaging>
+    <description>
+        demo-spring-boot-bom 依赖版本控制模块
+    </description>
+
+    <properties>
+        <hutool.version>5.1.4</hutool.version>
+        <demo-spring-boot.version>1.0.0.RELEASE</demo-spring-boot.version>
+<!--        <mybatis-plus.version>3.5.1</mybatis-plus.version>-->
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
+        <api-starter.version>1.2.0</api-starter.version>
+        <pagehelper.version>5.3.0</pagehelper.version>
+        <pagehelper-starter.version>1.4.2</pagehelper-starter.version>
+        <springboot-web-version>2.6.5</springboot-web-version>
+        <mysql-connector-java-version>8.0.16</mysql-connector-java-version>
+        <knife4j-sping-boot-starter>2.0.9</knife4j-sping-boot-starter>
+        <pagehelper-spring-boot-starter>1.3.0</pagehelper-spring-boot-starter>
+        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
+        <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
+        <spring-boot-starter-web>2.6.6</spring-boot-starter-web>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <pagehelper-spring-boot-starter>1.3.0</pagehelper-spring-boot-starter>
+        <aop.version>2.4.5</aop.version>
+        <fastjson.version>1.2.75</fastjson.version>
+        <gson.version>2.8.9</gson.version>
+        <spring-boot-redis-version>2.3.7.RELEASE</spring-boot-redis-version>
+        <redisson.version>3.5.0</redisson.version>
+        <openfign-starter.version>2.2.6.RELEASE</openfign-starter.version>
+        <sharding-jdbc-core>2.0.3</sharding-jdbc-core>
+        <druid>1.1.21</druid>
+        <disruptor>3.4.2</disruptor>
+        <mybatis-plus-generator>3.3.1.tmp</mybatis-plus-generator>
+        <druid.version>1.1.21</druid.version>
+        <commons-lang3.version>3.1</commons-lang3.version>
+        <mybatis-spring-boot-starter.version>2.1.3</mybatis-spring-boot-starter.version>
+        <!--修改log4j2版本-->
+        <log4j2.version>2.15.0</log4j2.version>
+    </properties>
+
+    <!--引入公共的模块-->
+    <dependencyManagement>
+        <dependencies>
+            <!--aop-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${aop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-spring-boot-starter}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j-sping-boot-starter}</version>
+            </dependency>
+            <!--生产环境swagger配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springboot-web-version}</version>
+            </dependency>
+            <!-- shardingjdbc -->
+            <dependency>
+                <groupId>io.shardingjdbc</groupId>
+                <artifactId>sharding-jdbc-core</artifactId>
+                <version>${sharding-jdbc-core}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java-version}</version>
+            </dependency>
+            <!-- druid连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+<!--            &lt;!&ndash;代码自动生成&ndash;&gt;-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-generator</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+            <!--mybatis-plus生成-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-mybatis-plus</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+            <!--公共包-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-common</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+            <!--核心包-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-core</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+            <!--api调用模块-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-api</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+            <!--日志 模块-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-log</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+
+            <!--网关 模块-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-gateway</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+
+            <!--Druid 模块-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-druid</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+
+            <!-- Hibernate Validator -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <!--mybatis-plus-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-mybatis-plus</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+            <!--mybatis plus extension,包含了mybatis plus core-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--redis-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-redis</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+            <!--security-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-security</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+            <!--generator-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-generator</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+            <!--hutool-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-spring-boot-starter}</version>
+            </dependency>
+
+            <!-- SpringBoot Admin -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-starter-web}</version>
+            </dependency>
+
+            <!--redis-->
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring-boot-redis-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--打包到自己的依赖-->
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>hjt-maven-release</name>
+            <url>http://1.15.180.135:8081/repository/hjt-maven-release/</url>
+        </repository>
+        <!--        <snapshotRepository>-->
+        <!--            <id>yusui-snapshots</id>-->
+        <!--            <name>Release Repository</name>-->
+        <!--            <url>http://192.168.1.80:8800/repository/yusui-snapshots/</url>-->
+        <!--        </snapshotRepository>-->
+        <!--个人私服仓库-->
+        <!--        <repository>-->
+        <!--            <id>nexus</id>-->
+        <!--            <name>maven-releases</name>-->
+        <!--            <url>http://192.168.1.48:8081/repository/maven-releases/</url>-->
+        <!--        </repository>-->
+        <!--        &lt;!&ndash;快照版本 若需要稳定版也有依赖 可同样加上这个snapshotRepository标签&ndash;&gt;-->
+        <!--        <snapshotRepository>-->
+        <!--            <id>nexus</id>-->
+        <!--            <name>maven-snapshots</name>-->
+        <!--            <url>http://192.168.1.48:8081/repository/maven-snapshots/</url>-->
+        <!--        </snapshotRepository>-->
+    </distributionManagement>
+
+
+</project>

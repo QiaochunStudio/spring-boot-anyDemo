@@ -1,0 +1,10 @@
+com\hjt\config\Knife4jConfiguration.class
+com\hjt\config\MyBatisPlusConfig.class
+com\hjt\test\entity\TGoods.class
+com\hjt\test\service\impl\TGoodsServiceImpl.class
+com\hjt\handler\MyBatisPlusAutoFillMetaObjectHandler.class
+com\hjt\test\mapper\TGoodsMapper.class
+com\hjt\test\controller\TGoodsController.class
+com\hjt\test\service\TGoodsService.class
+com\hjt\DemoSpringBootMyBatisPlusApplication.class
+com\hjt\util\ConditionsUtil.class
