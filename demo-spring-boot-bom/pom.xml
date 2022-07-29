@@ -53,6 +53,9 @@
         <mybatis-spring-boot-starter.version>2.1.3</mybatis-spring-boot-starter.version>
         <!--修改log4j2版本-->
         <log4j2.version>2.15.0</log4j2.version>
+        <nimbus-jose-jwt.version>9.22</nimbus-jose-jwt.version>
+        <spring-security-rsa.version>1.0.11.RELEASE</spring-security-rsa.version>
+        <netty.version>4.1.67.Final</netty.version>
     </properties>
 
     <!--引入公共的模块-->
@@ -191,6 +194,34 @@
                 <version>${demo-spring-boot.version}</version>
             </dependency>
 
+            <!--微服务模块-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-springCloud</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+
+
+<!--            &lt;!&ndash;sentinel&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.hjt</groupId>-->
+<!--                <artifactId>demo-springCloud-sentinel-service</artifactId>-->
+<!--                <version>${demo-spring-boot.version}</version>-->
+<!--            </dependency>-->
+
+<!--            &lt;!&ndash;sentinel&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.hjt</groupId>-->
+<!--                <artifactId>demo-springCloud-sentinel-client</artifactId>-->
+<!--                <version>${demo-spring-boot.version}</version>-->
+<!--            </dependency>-->
+
+<!--            <dependency>-->
+<!--                <groupId>com.hjt</groupId>-->
+<!--                <artifactId>demo-springCloud-hystrix</artifactId>-->
+<!--                <version>${demo-spring-boot.version}</version>-->
+<!--            </dependency>-->
+
             <!-- Hibernate Validator -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -225,6 +256,12 @@
             <dependency>
                 <groupId>com.hjt</groupId>
                 <artifactId>demo-spring-boot-generator</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-websocket</artifactId>
                 <version>${demo-spring-boot.version}</version>
             </dependency>
             <!--hutool-->
@@ -272,6 +309,33 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
             </dependency>
+
+            <!--jwt-->
+            <!--JWT解析库-->
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbus-jose-jwt.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-rsa -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-rsa</artifactId>
+                <version>${spring-security-rsa.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-codec-http</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-handler</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>

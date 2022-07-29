@@ -19,7 +19,7 @@ public interface BizExceptionCode {
      * @Date : 2019-10-11
      */
     String getCode();
-    
+
     /**
      * @Description : 获取错误信息
      * @Param : []

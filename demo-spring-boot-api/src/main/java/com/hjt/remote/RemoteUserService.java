@@ -6,9 +6,9 @@ import com.hjt.domain.LoginUser;
 import com.hjt.domain.R;
 import com.hjt.domain.SysUser;
 import com.hjt.factory.RemoteUserFallbackFactory;
+import com.hjt.myException.AjaxResult;
 import com.hjt.vo.DeptUserVO;
 import com.hjt.vo.UserInfoListVO;
-import com.hjt.web.domain.AjaxResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,17 +21,17 @@ import java.util.Set;
  *
  * @author hjt
  */
-@FeignClient(contextId = "remoteUserService", value = ServiceNameConstants.SYSTEM_SERVICE, fallbackFactory = RemoteUserFallbackFactory.class)
+@FeignClient(contextId = "remoteUserService", value = ServiceNameConstants.HJT_PLATFORM_SYSTEM, fallbackFactory = RemoteUserFallbackFactory.class)
 public interface RemoteUserService
 {
     /**
      * 通过用户名查询用户信息
      *
-     * @param username 用户名
+     * @param userName 用户名
      * @return 结果
      */
-    @GetMapping(value = "/user/info/{username}")
-    public R<LoginUser> getUserInfo(@PathVariable("username") String username);
+    @GetMapping(value = "/userInfo/api/v1/sys-user/getInfoByUserName/{userName}")
+    public R<LoginUser> getUserInfo(@PathVariable("userName") String userName);
 
     /**
      * 通过用户id查询用户信息
@@ -96,4 +96,14 @@ public interface RemoteUserService
 
     @PostMapping("/user/getUserIdInfoByUserName")
     public R<SysUser> getUserIdInfoByUserName(@RequestParam("userName") String userName);
+
+
+    /***
+     * 根据用户id获取秘钥
+     * @param userId
+     * @return
+     */
+    @PostMapping("/login/api/v1/sys-user/getSecretByUserId")
+    public  AjaxResult getSecretByUserId(@RequestParam("userId") String userId);
+
 }

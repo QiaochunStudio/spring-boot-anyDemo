@@ -2,6 +2,7 @@ package com.hjt.javaDemo.collection;
 
 import com.hjt.javaDemo.collection.domain.Pig;
 import com.hjt.javaDemo.collection.domain.User;
+import org.springframework.util.StringUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -159,6 +160,9 @@ public class StreamDemo {
         System.out.println("优化排序之后的数据:" + list12);
         //排序之后的数据:[{"id":1,"name":"pancm1"}, {"id":2,"name":"pancm2"}, {"id":3,"name":"pancm3"}]
         //优化排序之后的数据:[{"id":1,"name":"pancm1"}, {"id":2,"name":"pancm2"}, {"id":3,"name":"pancm3"}]
+
+
+
     }
 
     /***

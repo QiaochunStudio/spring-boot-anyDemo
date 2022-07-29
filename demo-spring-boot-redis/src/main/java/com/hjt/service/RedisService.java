@@ -228,4 +228,18 @@ public class RedisService
     {
         return redisTemplate.keys(pattern);
     }
+
+    /***
+     * 判断key值是否存在
+     */
+    public boolean hasKey(String key) {
+        try {
+            return redisTemplate.hasKey(key);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
 }

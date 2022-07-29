@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import com.hjt.exception.bizException.BizException;
-
+import org.springframework.transaction.annotation.Transactional;
 /**
 * <p>
 * ${table.comment!} 服务实现类
@@ -20,6 +20,7 @@ import com.hjt.exception.bizException.BizException;
 */
 @Slf4j
 @Service
+@Transactional
 <#if kotlin>
     open class ${table.serviceImplName} : ${superServiceImplClass}<${table.mapperName}, ${entity}>(), ${table.serviceName} {
 

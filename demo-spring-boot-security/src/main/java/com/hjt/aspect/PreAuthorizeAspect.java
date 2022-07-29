@@ -4,6 +4,7 @@ package com.hjt.aspect;
 import com.hjt.annotation.PreAuthorize;
 import com.hjt.domain.LoginUser;
 import com.hjt.exception.PreAuthorizeException;
+import com.hjt.myException.BaseException;
 import com.hjt.service.TokenService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -22,7 +23,7 @@ import java.util.Collection;
 /**
  * 自定义权限实现
  *
- * @author hjt
+ * @author hjt  测试看看是否打包成功
  */
 @Aspect
 @Component
@@ -47,9 +48,10 @@ public class PreAuthorizeAspect
         MethodSignature methodSignature = (MethodSignature) signature;
         Method method = methodSignature.getMethod();
         PreAuthorize annotation = method.getAnnotation(PreAuthorize.class);
-        if(1==1){
-            return point.proceed();
-        }
+        System.out.println("--------------------------");
+//        if(1==1){
+//            return point.proceed();
+//        }
         if (annotation == null)
         {
             return point.proceed();
@@ -61,7 +63,8 @@ public class PreAuthorizeAspect
             {
                 return point.proceed();
             }
-            throw new PreAuthorizeException();
+
+            throw new BaseException("权限模块", "4000", "用户没有权限该操作");
         }
         else if (!StringUtils.isEmpty(annotation.lacksPermi()))
         {
@@ -69,7 +72,7 @@ public class PreAuthorizeAspect
             {
                 return point.proceed();
             }
-            throw new PreAuthorizeException();
+            throw new BaseException("权限模块", "4001", "验证用户不具备某权限");
         }
         else if (ARRAY_EMPTY < annotation.hasAnyPermi().length)
         {
@@ -77,7 +80,7 @@ public class PreAuthorizeAspect
             {
                 return point.proceed();
             }
-            throw new PreAuthorizeException();
+            throw new BaseException("权限模块", "4002", "用户没有具有以下任意一个权限");
         }
         else if (!StringUtils.isEmpty(annotation.hasRole()))
         {
@@ -85,7 +88,7 @@ public class PreAuthorizeAspect
             {
                 return point.proceed();
             }
-            throw new PreAuthorizeException();
+            throw new BaseException("权限模块", "4003", "用户没有拥有该角色");
         }
         else if (!StringUtils.isEmpty(annotation.lacksRole()))
         {
@@ -93,7 +96,8 @@ public class PreAuthorizeAspect
             {
                 return point.proceed();
             }
-            throw new PreAuthorizeException();
+            throw new BaseException("权限模块", "4004", "用户是否不具备某角色");
+
         }
         else if (ARRAY_EMPTY < annotation.hasAnyRoles().length)
         {
@@ -101,7 +105,7 @@ public class PreAuthorizeAspect
             {
                 return point.proceed();
             }
-            throw new PreAuthorizeException();
+            throw new BaseException("权限模块", "4005", "用户是不具备有以下任意一个角色");
         }
 
         return point.proceed();

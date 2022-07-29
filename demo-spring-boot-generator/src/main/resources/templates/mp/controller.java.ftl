@@ -3,7 +3,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import com.hjt.annotation.Log;
-import com.hjt.exception.entity.dto.ResultBean;
+import com.hjt.myException.AjaxResult;
 import ${package.Service}.${table.serviceName};
 import ${package.Entity}.${entity};
 <#if restControllerStyle>
@@ -50,10 +50,10 @@ public class ${table.controllerName} {
     */
     @ApiOperation(value = "${entity}查询分页")
     @RequestMapping(method = RequestMethod.GET)
-    public ResultBean<?> listByPage(@RequestParam(name = "page", defaultValue = "1") int page,
+    public AjaxResult listByPage(@RequestParam(name = "page", defaultValue = "1") int page,
                                     @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
                                     @RequestParam(name = "factor", defaultValue = "") String factor) {
-        return new ResultBean<>(${table.serviceName?uncap_first}.list${entity}sByPage(page, pageSize,factor));
+        return AjaxResult.success(${table.serviceName?uncap_first}.list${entity}sByPage(page, pageSize,factor));
     }
 
 
@@ -62,8 +62,8 @@ public class ${table.controllerName} {
     */
     @ApiOperation(value = "${entity}根据id查询")
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
-    public ResultBean<?> getById(@PathVariable("id") Long id) {
-        return new ResultBean<>(${table.serviceName?uncap_first}.get${entity}ById(id));
+    public AjaxResult getById(@PathVariable("id") Long id) {
+        return AjaxResult.success(${table.serviceName?uncap_first}.get${entity}ById(id));
     }
 
     /**
@@ -72,8 +72,8 @@ public class ${table.controllerName} {
     @ApiOperation(value = "${entity}新增")
     @RequestMapping(method = RequestMethod.POST)
     @Log(title = "${entity}新增")
-    public ResultBean<?> insert(@RequestBody ${entity} ${entity?uncap_first}) {
-        return new ResultBean<>(${table.serviceName?uncap_first}.insert${entity}(${entity?uncap_first}));
+    public AjaxResult insert(@RequestBody ${entity} ${entity?uncap_first}) {
+        return AjaxResult.success(${table.serviceName?uncap_first}.insert${entity}(${entity?uncap_first}));
     }
 
     /**
@@ -82,8 +82,8 @@ public class ${table.controllerName} {
     @ApiOperation(value = "${entity}根据id删除")
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
     @Log(title = "${entity}根据id删除")
-    public ResultBean<?> deleteById(@PathVariable("id") Long id) {
-        return new ResultBean<>(${table.serviceName?uncap_first}.delete${entity}ById(id));
+    public AjaxResult deleteById(@PathVariable("id") Long id) {
+        return AjaxResult.success(${table.serviceName?uncap_first}.delete${entity}ById(id));
     }
 
     /**
@@ -92,8 +92,8 @@ public class ${table.controllerName} {
     @ApiOperation(value = "${entity}修改")
     @RequestMapping(method = RequestMethod.PUT)
     @Log(title = "${entity}修改")
-    public ResultBean<?> updateById(@RequestBody ${entity} ${entity?uncap_first}) {
-        return new ResultBean<>(${table.serviceName?uncap_first}.update${entity}(${entity?uncap_first}));
+    public AjaxResult updateById(@RequestBody ${entity} ${entity?uncap_first}) {
+        return AjaxResult.success(${table.serviceName?uncap_first}.update${entity}(${entity?uncap_first}));
     }
 }
 </#if>

@@ -34,7 +34,7 @@ public enum BizExceptionCodeEnum implements BizExceptionCode{
      * @Author : SheldonPeng
      * @Date : 2019-10-11
      */
-     BizExceptionCodeEnum(String code,String message){
+    BizExceptionCodeEnum(String code,String message){
 
         this.code = code;
         this.message = message;

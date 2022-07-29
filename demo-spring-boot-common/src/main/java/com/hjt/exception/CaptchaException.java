@@ -3,7 +3,7 @@ package com.hjt.exception;
 /**
  * 验证码错误异常类
  *
- * @author ljf
+ * @author hjt
  */
 public class CaptchaException extends RuntimeException
 {

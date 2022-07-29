@@ -37,6 +37,8 @@
         <module>demo-spring-boot-example</module>
         <module>demo-spring-boot-generator</module>
         <module>demo-spring-boot-druid</module>
+        <module>demo-spring-boot-websocket</module>
+        <module>demo-springCloud</module>
     </modules>
 
     <name>spring-boot-project-demo</name>
@@ -144,6 +146,7 @@
             <name>hjt-maven-release</name>
             <url>http://1.15.180.135:8081/repository/hjt-maven-release/</url>
         </repository>
+
         <!--        <snapshotRepository>-->
         <!--            <id>yusui-snapshots</id>-->
         <!--            <name>Release Repository</name>-->

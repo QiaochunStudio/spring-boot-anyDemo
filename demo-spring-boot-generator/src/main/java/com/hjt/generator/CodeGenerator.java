@@ -38,6 +38,7 @@ public class CodeGenerator {
     private String serviceTemplate = templatePath + "service.java";
     private String serviceImplTemplate = templatePath + "serviceImpl.java";
     private String mapperTemplate = templatePath + "mapper.java";
+    private String xml = templatePath + "mapperXml.java";
 
     private static String url = "jdbc:mysql://1.15.180.135:3307/demo-spring-boot-mybatis-plus?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
     private static String driverName = "com.mysql.cj.jdbc.Driver";
@@ -93,6 +94,7 @@ public class CodeGenerator {
         gc.setFileOverride(true);
         //   实体属性 Swagger2 注解
          gc.setSwagger2(true);
+         gc.setXmlName("test");
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
@@ -104,8 +106,12 @@ public class CodeGenerator {
         pc.setParent(parentPackage);
         String moduleName = scanner("模块名字");
         pc.setModuleName(moduleName);
+        //配置xml输出路径
+//        pc.set
         mpg.setPackageInfo(pc);
-
+        //设置xml存放的路径
+        System.out.println("输出路径:"+substring+"/src/main/resources/mapper/test");
+        pc.setXml("test3");
         // 自定义配置
         InjectionConfig cfg = new InjectionConfig() {
             @Override
@@ -119,11 +125,11 @@ public class CodeGenerator {
         TemplateConfig templateConfig = new TemplateConfig();
         // 配置自定义输出模板
         //指定自定义模板路径，注意不要带上.ftl/.vm, 会根据使用的模板引擎自动识别
-        templateConfig.setXml(null);
         templateConfig.setService(serviceTemplate);
         templateConfig.setServiceImpl(serviceImplTemplate);
         templateConfig.setMapper(mapperTemplate);
         templateConfig.setController(controllerTemplate);
+        templateConfig.setXml(xml);
         mpg.setTemplate(templateConfig);
 
         // 策略配置

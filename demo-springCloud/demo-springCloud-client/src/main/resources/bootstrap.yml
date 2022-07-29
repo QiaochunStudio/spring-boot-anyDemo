@@ -1,0 +1,9 @@
+server:
+  port: 6602
+spring:
+  application:
+    name: demo-springCloud-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置Nacos地址

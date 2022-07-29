@@ -1,20 +1,21 @@
 package com.hjt.aspect;
 
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.hjt.annotation.Log;
 import com.hjt.demo.service.SysOperLogService;
 import com.hjt.domain.SysOperLog;
 import com.hjt.enums.BusinessStatus;
+import com.hjt.myException.BaseException;
 import com.hjt.service.AsyncLogService;
 import com.hjt.util.IpUtils;
 import com.hjt.util.ServletUtils;
 import com.hjt.utils.StringUtils;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,9 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 操作日志记录处理
@@ -85,7 +84,6 @@ public class LogAspect
             {
                 return;
             }
-
             // *========数据库日志=========*//
             SysOperLog operLog = new SysOperLog();
             operLog.setStatus(BusinessStatus.SUCCESS.ordinal());
@@ -93,7 +91,6 @@ public class LogAspect
             String ip = IpUtils.getIpAddr(ServletUtils.getRequest());
             operLog.setOperIp(ip);
             // 返回参数
-            operLog.setJsonResult(JSON.toJSONString(jsonResult));
 
             operLog.setOperUrl(ServletUtils.getRequest().getRequestURI());
             //获取当前的用户名称 需要远程调用配合
@@ -102,9 +99,24 @@ public class LogAspect
 //            {
 //                operLog.setOperName(username);
 //            }
+            //把自定义异常的返回结果封装成json
+            BaseException exceptionData = (BaseException)e;
+            if(ObjectUtil.isNotNull(exceptionData)){
+                SortedMap<Object, Object> sortedMap = new TreeMap<Object, Object>() {
+                    private static final long serialVersionUID = 1L;
+                    {
+                        put("code", exceptionData.getCode());
+                        put("module", exceptionData.getModule());
+                        put("msg", exceptionData.getDefaultMessage());
+                    }};
+                //转成json
+                String resultJson = JSONUtil.toJsonPrettyStr(sortedMap);
+                operLog.setJsonResult(JSON.toJSONString(resultJson));
+            }
 
             if (e != null)
             {
+//                operLog.setStatus()
                 operLog.setStatus(BusinessStatus.FAIL.ordinal());
                 operLog.setErrorMsg(StringUtils.substring(e.getMessage(), 0, 2000));
             }
@@ -130,6 +142,7 @@ public class LogAspect
             exp.printStackTrace();
         }
     }
+
 
     /**
      * 获取注解中对方法的描述信息 用于Controller层注解

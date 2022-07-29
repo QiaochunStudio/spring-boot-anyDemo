@@ -34,13 +34,13 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.4.2</version>
+<!--            <version>3.4.2</version>-->
         </dependency>
         <!--mybatis plus extension,包含了mybatis plus core-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-extension</artifactId>
-            <version>3.4.2</version>
+<!--            <version>3.4.2</version>-->
         </dependency>
 
 
@@ -64,6 +64,25 @@
             <groupId>com.hjt</groupId>
             <artifactId>demo-spring-boot-core</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.hjt</groupId>
+            <artifactId>demo-spring-boot-core</artifactId>
+        </dependency>
+
+        <!--JWT解析库-->
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-rsa -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-rsa</artifactId>
+        </dependency>
+
+
 
     </dependencies>
 

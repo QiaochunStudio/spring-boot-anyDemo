@@ -3,7 +3,7 @@ package com.hjt.exception;
 /**
  * 工具类异常
  *
- * @author ljf
+ * @author hjt
  */
 public class UtilException extends RuntimeException
 {
