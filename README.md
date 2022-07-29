@@ -40,6 +40,8 @@
 
 搭建私服可以看我另外一个教程
 
+特别注意：相关技术文档说明放在这，请各位看官移步到这里观看。
+
 ![image](https://user-images.githubusercontent.com/76513734/181674918-68687eb1-f2bc-44a8-adce-32f99c07ad1a.png)
 
 
