@@ -40,6 +40,7 @@
 
 搭建私服可以看我另外一个教程
 
+![image](https://user-images.githubusercontent.com/76513734/181674918-68687eb1-f2bc-44a8-adce-32f99c07ad1a.png)
 
 
 
