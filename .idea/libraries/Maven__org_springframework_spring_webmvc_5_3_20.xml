@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework:spring-webmvc:5.3.20">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/org/springframework/spring-webmvc/5.3.20/spring-webmvc-5.3.20.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/org/springframework/spring-webmvc/5.3.20/spring-webmvc-5.3.20-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/org/springframework/spring-webmvc/5.3.20/spring-webmvc-5.3.20-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

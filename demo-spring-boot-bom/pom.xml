@@ -56,6 +56,7 @@
         <nimbus-jose-jwt.version>9.22</nimbus-jose-jwt.version>
         <spring-security-rsa.version>1.0.11.RELEASE</spring-security-rsa.version>
         <netty.version>4.1.67.Final</netty.version>
+        <rocketmq.version>2.2.2</rocketmq.version>
     </properties>
 
     <!--引入公共的模块-->
@@ -194,33 +195,19 @@
                 <version>${demo-spring-boot.version}</version>
             </dependency>
 
+            <!--rocketmq 模块-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-rocketmq</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+
             <!--微服务模块-->
             <dependency>
                 <groupId>com.hjt</groupId>
                 <artifactId>demo-springCloud</artifactId>
                 <version>${demo-spring-boot.version}</version>
             </dependency>
-
-
-<!--            &lt;!&ndash;sentinel&ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>com.hjt</groupId>-->
-<!--                <artifactId>demo-springCloud-sentinel-service</artifactId>-->
-<!--                <version>${demo-spring-boot.version}</version>-->
-<!--            </dependency>-->
-
-<!--            &lt;!&ndash;sentinel&ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>com.hjt</groupId>-->
-<!--                <artifactId>demo-springCloud-sentinel-client</artifactId>-->
-<!--                <version>${demo-spring-boot.version}</version>-->
-<!--            </dependency>-->
-
-<!--            <dependency>-->
-<!--                <groupId>com.hjt</groupId>-->
-<!--                <artifactId>demo-springCloud-hystrix</artifactId>-->
-<!--                <version>${demo-spring-boot.version}</version>-->
-<!--            </dependency>-->
 
             <!-- Hibernate Validator -->
             <dependency>
@@ -336,6 +323,12 @@
                 <version>${netty.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>
@@ -359,7 +352,7 @@
         <repository>
             <id>nexus</id>
             <name>hjt-maven-release</name>
-            <url>http://1.15.180.135:8081/repository/hjt-maven-release/</url>
+            <url>http://1.15.180.153:8081/repository/hjt-maven-release/</url>
         </repository>
         <!--        <snapshotRepository>-->
         <!--            <id>yusui-snapshots</id>-->

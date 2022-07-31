@@ -1,0 +1,7 @@
+rocketmq:
+  name-server: 192.168.1.219:9876
+  producer:
+    group: rocketmq-group
+
+server:
+  port: 3030

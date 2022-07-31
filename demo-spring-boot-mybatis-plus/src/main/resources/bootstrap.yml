@@ -14,7 +14,7 @@ spring:
     nacos:
       discovery:
         # 服务注册地址
-        server-addr: ${NACOS-HOST:1.15.180.135}:${NACOS-PORT:8848}
+        server-addr: ${NACOS-HOST:1.15.180.153}:${NACOS-PORT:8848}
         group: DEFAULT_GROUP
         namespace: demo-hjt
         metadata:

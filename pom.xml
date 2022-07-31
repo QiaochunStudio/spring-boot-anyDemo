@@ -39,6 +39,7 @@
         <module>demo-spring-boot-druid</module>
         <module>demo-spring-boot-websocket</module>
         <module>demo-springCloud</module>
+        <module>demo-spring-boot-rocketmq</module>
     </modules>
 
     <name>spring-boot-project-demo</name>
@@ -144,7 +145,7 @@
         <repository>
             <id>nexus</id>
             <name>hjt-maven-release</name>
-            <url>http://1.15.180.135:8081/repository/hjt-maven-release/</url>
+            <url>http://1.15.180.153:8081/repository/hjt-maven-release/</url>
         </repository>
 
         <!--        <snapshotRepository>-->

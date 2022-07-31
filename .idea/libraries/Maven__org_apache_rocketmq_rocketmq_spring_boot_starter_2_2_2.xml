@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.rocketmq:rocketmq-spring-boot-starter:2.2.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/org/apache/rocketmq/rocketmq-spring-boot-starter/2.2.2/rocketmq-spring-boot-starter-2.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/org/apache/rocketmq/rocketmq-spring-boot-starter/2.2.2/rocketmq-spring-boot-starter-2.2.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/org/apache/rocketmq/rocketmq-spring-boot-starter/2.2.2/rocketmq-spring-boot-starter-2.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
