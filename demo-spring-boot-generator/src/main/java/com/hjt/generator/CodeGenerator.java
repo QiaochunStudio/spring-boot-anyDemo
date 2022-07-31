@@ -40,7 +40,7 @@ public class CodeGenerator {
     private String mapperTemplate = templatePath + "mapper.java";
     private String xml = templatePath + "mapperXml.java";
 
-    private static String url = "jdbc:mysql://1.15.180.153:3307/demo-spring-boot-mybatis-plus?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
+    private static String url = "jdbc:mysql://1.15.180.135:3307/demo-spring-boot-mybatis-plus?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
     private static String driverName = "com.mysql.cj.jdbc.Driver";
     private static String username = "root";
     private static String password = "970628hjt.";

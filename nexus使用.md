@@ -38,7 +38,7 @@
     <repository>
         <id>nexus</id
         <name>hjt-maven-release</name>
-       <url>http://1.15.180.153:8081/repository/hjt-maven-release/</url>
+       <url>http://1.15.180.135:8081/repository/hjt-maven-release/</url>
     </repository>
 </distributionManagement>
 ```
