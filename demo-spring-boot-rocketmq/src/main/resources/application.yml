@@ -5,3 +5,10 @@ rocketmq:
 
 server:
   port: 3030
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://1.15.180.135:3307/demo-spring-boot-mybatis-plus?useUnicode=true&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useUnicode=yes&characterEncoding=utf8
+    username: root
+    password: 970628hjt.

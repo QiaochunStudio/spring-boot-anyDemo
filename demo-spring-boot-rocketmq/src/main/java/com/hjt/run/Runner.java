@@ -42,19 +42,24 @@ public class Runner implements CommandLineRunner {
 //        rocketmqProducer.oneWay();
         //异步
 //        rocketmqProducer.async();
-        //事务处理
-//        transactionProducer.produce();
         //订单  顺序消息
 //        orderProducer.sendSyncOrderly();
         //顺序消息测这个 1 2 3 4
-//        orderProducer.testSendSyncOrderly1();
-//        orderProducer.testSendSyncOrderly2();
-//        orderProducer.testSendSyncOrderly3();
-//        orderProducer.testSendSyncOrderly4();
+        orderProducer.testSendSyncOrderly1();
+        orderProducer.testSendSyncOrderly2();
+        orderProducer.testSendSyncOrderly3();
+        orderProducer.testSendSyncOrderly4();
         //事务消息
 //        tagProducer.sendTagsMessage();
         //延迟消息
-        offsetProducer.send();
+//        offsetProducer.send();
+//        offsetProducer.sendByHjt();
+
+        //根据tag消费消息
+//        tagProducer.sendTagsMessage();
+
+        //事务处理
+        transactionProducer.produce();
 //        messageModelProducer.send();
     }
 

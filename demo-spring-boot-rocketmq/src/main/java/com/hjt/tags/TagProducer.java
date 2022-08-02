@@ -21,9 +21,7 @@ public class TagProducer {
         String[] tags = new String[]{"A", "B", "C", "D"};
         String message = "tags message :  ";
         for (int i = 0; i < tags.length; i++) {
-//            int k = i % tags.length;
             rocketMQTemplate.syncSend("topic-tags:" + tags[i], message + tags[i]);
-//            rocketMQTemplate.syncSend("topic-tags:" + tags[k], message + tags[k]);
         }
     }
 }

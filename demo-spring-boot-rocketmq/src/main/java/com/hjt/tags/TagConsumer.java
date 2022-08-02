@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @RocketMQMessageListener(
         topic = "topic-tags",
         consumerGroup = "tags-consumer-group",
-        selectorExpression = "A||B||C")
+        selectorExpression = "A||C")
 public class TagConsumer implements RocketMQListener<String> {
 
     @Override

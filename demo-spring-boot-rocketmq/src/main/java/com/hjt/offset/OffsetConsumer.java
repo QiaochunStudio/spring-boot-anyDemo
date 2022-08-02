@@ -26,9 +26,11 @@ public class OffsetConsumer implements RocketMQListener<String>,RocketMQPushCons
 
     @Override
     public void prepareStart(DefaultMQPushConsumer consumer) {
-//        consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
-        consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_TIMESTAMP);
+        consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);
         //延迟2分钟 System.currentTimeMillis()-100000 换成时间戳就是比当前时间早2分钟
-        consumer.setConsumeTimestamp(UtilAll.timeMillisToHumanString3(System.currentTimeMillis()+1000));
+//        consumer.setConsumeTimestamp(UtilAll.timeMillisToHumanString3(System.currentTimeMillis()-1000));
     }
+
+
+
 }
