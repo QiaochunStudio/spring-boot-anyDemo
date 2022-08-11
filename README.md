@@ -38,11 +38,31 @@
 
 要先使用，先搭建一个nexus私服哦（ps：很easy,不懂私信我哈哈哈）
 
-搭建私服可以看我另外一个教程
+[搭建私服可以看我另外一个教程](https://blog.csdn.net/weixin_40483369/article/details/123794145)
 
-特别注意：相关技术文档说明放在这，请各位看官移步到这里观看。
+## 相关技术文档
 
-![image](https://user-images.githubusercontent.com/76513734/181674918-68687eb1-f2bc-44a8-adce-32f99c07ad1a.png)
+### [1.Rocketmq技术详解](https://github.com/hongjiatao/spring-boot-anyDemo/wiki/Rocketmq%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3)
+
+### [2.Rocketmq最佳实践](https://github.com/hongjiatao/spring-boot-anyDemo/wiki/Rocketmq%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5)
+
+### [3.Sentinel使用和技术详解](https://github.com/hongjiatao/spring-boot-anyDemo/wiki/Sentinel%E4%BD%BF%E7%94%A8%E5%92%8C%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3)
+
+### [Spirng Cloud Gateway详解](https://github.com/hongjiatao/spring-boot-anyDemo/wiki/Spirng-Cloud-Gateway%E8%AF%A6%E8%A7%A3)
+
+### [4.Spring Cloud Hystrix：服务容错保护](https://github.com/hongjiatao/spring-boot-anyDemo/wiki/Spring-Cloud-Hystrix%EF%BC%9A%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99%E4%BF%9D%E6%8A%A4)
+
+### [5.Spring Cloud Security：Oauth2使用](https://github.com/hongjiatao/spring-boot-anyDemo/wiki/Spring-Cloud-Security%EF%BC%9AOauth2%E4%BD%BF%E7%94%A8)
+
+### [6.webscoket技术文档说明](https://github.com/hongjiatao/spring-boot-anyDemo/wiki/webscoket%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E)
+
+### [7.使用Seata彻底解决Spring Cloud中的分布式事务问题！](https://github.com/hongjiatao/spring-boot-anyDemo/wiki/%E4%BD%BF%E7%94%A8Seata%E5%BD%BB%E5%BA%95%E8%A7%A3%E5%86%B3Spring-Cloud%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98%EF%BC%81)
+
+### [8.搭建项目出现报错问题汇总](https://github.com/hongjiatao/spring-boot-anyDemo/wiki/%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE%E5%87%BA%E7%8E%B0%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB)
+
+### [9.项目技术文档说明](https://github.com/hongjiatao/spring-boot-anyDemo/wiki/%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E)
+
+### [10.项目搭建注解补充说明](https://github.com/hongjiatao/spring-boot-anyDemo/wiki/%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E6%B3%A8%E8%A7%A3%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E)
 
 
 
