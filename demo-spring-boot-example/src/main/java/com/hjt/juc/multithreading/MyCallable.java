@@ -1,4 +1,4 @@
-package com.hjt.multithreading;
+package com.hjt.juc.multithreading;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;

@@ -1,4 +1,4 @@
-package com.hjt.multithreading;
+package com.hjt.juc.multithreading;
 
 class Thread2 implements Runnable{
     private String name;
