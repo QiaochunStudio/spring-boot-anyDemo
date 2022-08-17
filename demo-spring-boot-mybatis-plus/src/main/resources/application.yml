@@ -21,10 +21,10 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
 
-#knife4j:
-#  enable: true
-#  # 开启生产环境屏蔽  true 关闭swagger   false 开启swagger
-#  production: false
+knife4j:
+  enable: true
+  # 开启生产环境屏蔽  true 关闭swagger   false 开启swagger
+  production: false
 
   #开启swagger访问需要密码配置
 #  basic:
@@ -33,6 +33,6 @@ mybatis-plus:
 #      username: test
 #      # Basic认证密码
 #      password: 123
-server:
-  port: 5051
+
+
 

@@ -1,6 +1,7 @@
 package com.hjt.aspect;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.hjt.annotation.Log;
@@ -113,12 +114,22 @@ public class LogAspect
                 String resultJson = JSONUtil.toJsonPrettyStr(sortedMap);
                 operLog.setJsonResult(JSON.toJSONString(resultJson));
             }
-
+            //没发生异常就正常输出,正常的jsonResult也记录
             if (e != null)
             {
 //                operLog.setStatus()
                 operLog.setStatus(BusinessStatus.FAIL.ordinal());
                 operLog.setErrorMsg(StringUtils.substring(e.getMessage(), 0, 2000));
+            }
+            if(ObjectUtil.isNotNull(jsonResult)){
+                //没发生异常就正常输出,正常的jsonResult也记录
+                // hutool工具类把正常的jsonResult对象转为json,false表示不跳过空值
+                JSONObject json = JSONUtil.parseObj(jsonResult, false);
+                String strJsonResult = json.toStringPretty();
+                operLog.setJsonResult(strJsonResult);
+            }
+            else{
+                operLog.setJsonResult("输出为空");
             }
             // 设置方法名称
             String className = joinPoint.getTarget().getClass().getName();

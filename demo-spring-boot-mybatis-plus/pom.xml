@@ -45,13 +45,12 @@
             <artifactId>mybatis-plus-generator</artifactId>
         </dependency>
 
-
-
         <!--引进公共模块-->
         <dependency>
             <groupId>com.hjt</groupId>
             <artifactId>demo-spring-boot-common</artifactId>
         </dependency>
+
 
         <!-- SpringCloud Ailibaba Nacos Config -->
         <dependency>

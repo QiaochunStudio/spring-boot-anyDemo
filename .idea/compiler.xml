@@ -15,6 +15,7 @@
         <module name="demo-spring-boot-mybatis-plus" />
         <module name="demo-spring-boot-core" />
         <module name="demo-spring-boot-common" />
+        <module name="demo-spring-boot-file" />
         <module name="demo-springCloud-hystrix" />
         <module name="demo-springCloud-seata-order" />
         <module name="demo-springCloud-sentinel-service" />
@@ -40,6 +41,7 @@
       <module name="demo-spring-boot-core" target="1.8" />
       <module name="demo-spring-boot-druid" target="1.8" />
       <module name="demo-spring-boot-example" target="1.8" />
+      <module name="demo-spring-boot-file" target="1.8" />
       <module name="demo-spring-boot-gateway" target="1.8" />
       <module name="demo-spring-boot-generator" target="1.8" />
       <module name="demo-spring-boot-log" target="1.8" />
