@@ -1,22 +1,25 @@
 package com.hjt.aspect;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
 import com.hjt.annotation.Log;
-import com.hjt.demo.service.SysOperLogService;
 import com.hjt.domain.SysOperLog;
 import com.hjt.enums.BusinessStatus;
 import com.hjt.myException.BaseException;
 import com.hjt.service.AsyncLogService;
 import com.hjt.util.IpUtils;
+import com.hjt.util.SecurityUtils;
 import com.hjt.util.ServletUtils;
 import com.hjt.utils.StringUtils;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
@@ -43,8 +47,6 @@ public class LogAspect
     @Autowired
     private AsyncLogService asyncLogService;
 
-    @Autowired
-    private SysOperLogService sysOperLogService;
 
     // 配置织入点
     @Pointcut("@annotation(com.hjt.annotation.Log)")
@@ -87,6 +89,8 @@ public class LogAspect
             }
             // *========数据库日志=========*//
             SysOperLog operLog = new SysOperLog();
+            Date operTime = DateUtil.date();
+            operLog.setOperTime(operTime);
             operLog.setStatus(BusinessStatus.SUCCESS.ordinal());
             // 请求的地址
             String ip = IpUtils.getIpAddr(ServletUtils.getRequest());
@@ -94,12 +98,15 @@ public class LogAspect
             // 返回参数
 
             operLog.setOperUrl(ServletUtils.getRequest().getRequestURI());
+            //判断是否是白名单的路径，如果是 username直接是null
+
             //获取当前的用户名称 需要远程调用配合
-//            String username = SecurityUtils.getUsername();
-//            if (StringUtils.isNotBlank(username))
-//            {
-//                operLog.setOperName(username);
-//            }
+            String username = SecurityUtils.getUsername();
+            if (StringUtils.isNotBlank(username))
+            {
+                operLog.setOperName(username);
+            }
+
             //把自定义异常的返回结果封装成json
             BaseException exceptionData = (BaseException)e;
             if(ObjectUtil.isNotNull(exceptionData)){
@@ -140,10 +147,11 @@ public class LogAspect
             // 处理设置注解上的参数
             getControllerMethodDescription(joinPoint, controllerLog, operLog);
             // 保存数据库
+
             //测试环境调用
-            sysOperLogService.insertOperlog(operLog);
+//            sysOperLogService.insertOperlog(operLog);
             //正式环境
-//            asyncLogService.saveSysLog(operLog);
+            asyncLogService.saveSysLog(operLog);
         }
         catch (Exception exp)
         {

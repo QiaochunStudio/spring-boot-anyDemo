@@ -2,6 +2,7 @@ package com.hjt.domain;
 
 
 import com.hjt.annotation.Excel;
+import lombok.Builder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -11,7 +12,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author hjt
  * @date 2021-06-23
  */
-public class SysFile extends BaseEntity
+@Builder
+public class SysFile
 {
     private static final long serialVersionUID = 1L;
 
@@ -167,12 +169,12 @@ public class SysFile extends BaseEntity
                 .append("uploadUserId", getUploadUserId())
                 .append("uploadUserName", getUploadUserName())
                 .append("delFlag", getDelFlag())
-                .append("remark", getRemark())
-                .append("createBy", getCreateBy())
-                .append("createTime", getCreateTime())
-                .append("updateBy", getUpdateBy())
-                .append("updateTime", getUpdateTime())
-                .append("mimeType", getMimeType())
+//                .append("remark", getRemark())
+//                .append("createBy", getCreateBy())
+//                .append("createTime", getCreateTime())
+//                .append("updateBy", getUpdateBy())
+//                .append("updateTime", getUpdateTime())
+//                .append("mimeType", getMimeType())
                 .toString();
     }
 }

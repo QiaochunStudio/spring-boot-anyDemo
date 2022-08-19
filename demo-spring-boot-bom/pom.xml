@@ -13,7 +13,7 @@
     <artifactId>demo-spring-boot-bom</artifactId>
     <groupId>com.hjt</groupId>
     <name>${project.artifactId}</name>
-    <version>1.0.0.RELEASE</version>
+    <version>1.0.1.RELEASE</version>
     <packaging>pom</packaging>
     <description>
         demo-spring-boot-bom 依赖版本控制模块
@@ -21,7 +21,7 @@
 
     <properties>
         <hutool.version>5.1.4</hutool.version>
-        <demo-spring-boot.version>1.0.0.RELEASE</demo-spring-boot.version>
+        <demo-spring-boot.version>1.0.1.RELEASE</demo-spring-boot.version>
 <!--        <mybatis-plus.version>3.5.1</mybatis-plus.version>-->
         <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <api-starter.version>1.2.0</api-starter.version>
@@ -57,10 +57,11 @@
         <spring-security-rsa.version>1.0.11.RELEASE</spring-security-rsa.version>
         <netty.version>4.1.67.Final</netty.version>
         <rocketmq.version>2.2.2</rocketmq.version>
-        <minio-version>8.4.1</minio-version>
+        <minio-version>8.0.3</minio-version>
         <poi-ooxml.version>4.1.2</poi-ooxml.version>
         <poi.version>4.1.2</poi.version>
         <metadata-extractor.version>2.11.0</metadata-extractor.version>
+        <druid-spring-boot-starter.version>1.2.6</druid-spring-boot-starter.version>
     </properties>
 
     <!--引入公共的模块-->
@@ -358,6 +359,14 @@
                 <groupId>com.drewnoakes</groupId>
                 <artifactId>metadata-extractor</artifactId>
                 <version>${metadata-extractor.version}</version>
+            </dependency>
+
+
+            <!-- Druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

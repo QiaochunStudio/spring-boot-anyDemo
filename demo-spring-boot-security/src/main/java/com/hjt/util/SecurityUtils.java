@@ -1,5 +1,8 @@
 package com.hjt.util;
 
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import com.hjt.constant.CacheConstants;
 import com.hjt.domain.LoginUser;
 import com.hjt.domain.SysUser;
@@ -32,13 +35,19 @@ public class SecurityUtils {
      * 获取用户
      */
     public static SysUser getUser() {
+        SysUser sysUser = null;
         // 获取请求携带的令牌
         String token = getToken(ServletUtils.getRequest());
         if (StringUtils.isNotEmpty(token)) {
-            String userKey = CacheConstants.LOGIN_TOKEN_KEY.concat(token);
-            LoginUser user = redisService.getCacheObject(userKey);
-            if (null != user) {
-                return user.getSysUser();
+            JSONObject jsonLoginUser = (JSONObject) redisService.getCacheObject(CacheConstants.LOGIN_TOKEN_KEY + token);
+            if (ObjectUtil.isNotNull(jsonLoginUser)) {
+                //转为字符串
+                String username = jsonLoginUser.getStr("username");
+                String userid = jsonLoginUser.getStr("userid");
+                sysUser = new SysUser();
+                sysUser.setUserName(username);
+                sysUser.setUserId(Long.valueOf(userid));
+                return sysUser;
             }
         }
         return null;
@@ -48,7 +57,11 @@ public class SecurityUtils {
      * 获取用户
      */
     public static String getUsername() {
-        return ServletUtils.urlDecode(Objects.requireNonNull(getUser()).getUserName());
+        SysUser user = getUser();
+        if(ObjectUtil.isNotNull(user)){
+            return ServletUtils.urlDecode(Objects.requireNonNull(user).getUserName());
+        }
+        return null;
     }
 
 
@@ -63,7 +76,11 @@ public class SecurityUtils {
      * 获取用户ID
      */
     public static Long getUserId() {
-        return Convert.toLong(Objects.requireNonNull(getUser()).getUserId());
+        SysUser user = getUser();
+        if(ObjectUtil.isNotNull(user)){
+            return Convert.toLong(Objects.requireNonNull(getUser()).getUserId());
+        }
+        return null;
     }
 
     /**
@@ -77,7 +94,7 @@ public class SecurityUtils {
      * 根据request获取请求token
      */
     public static String getToken(HttpServletRequest request) {
-        if(null!=ServletUtils.getRequest()){
+        if (null != ServletUtils.getRequest()) {
             String token = ServletUtils.getRequest().getHeader(CacheConstants.HEADER);
             if (StringUtils.isNotEmpty(token) && token.startsWith(CacheConstants.TOKEN_PREFIX)) {
                 token = token.replace(CacheConstants.TOKEN_PREFIX, "");
@@ -121,12 +138,12 @@ public class SecurityUtils {
     }
 
     //用Base64中将byte[]数组转为字符串
-    public static String getEncoder(byte[] encryptResult){
+    public static String getEncoder(byte[] encryptResult) {
         String encoded = Base64.getEncoder().encodeToString(encryptResult);
         return encoded;
     }
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
 
     }

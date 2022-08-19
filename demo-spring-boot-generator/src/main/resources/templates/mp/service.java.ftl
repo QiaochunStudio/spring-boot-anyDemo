@@ -27,7 +27,7 @@ public interface ${table.serviceName} {
     * @author ${author}
     * @since ${date}
     */
-    Page<${entity}> list${entity}sByPage(int page, int pageSize, String factor);
+    Page<${entity}> list${entity}sByPage(int page, int pageSize, ${entity} factor);
 
     /**
     * 根据id查询${entity}

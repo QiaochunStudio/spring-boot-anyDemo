@@ -7,7 +7,7 @@
     <groupId>com.hjt</groupId>
     <artifactId>springboot-project-demo</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0.RELEASE</version>
+    <version>1.0.1.RELEASE</version>
     <description>hjt demo 案例</description>
 
 
@@ -57,7 +57,7 @@
             <dependency>
                 <groupId>com.hjt</groupId>
                 <artifactId>demo-spring-boot-bom</artifactId>
-                <version>1.0.0.RELEASE</version>
+                <version>1.0.1.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

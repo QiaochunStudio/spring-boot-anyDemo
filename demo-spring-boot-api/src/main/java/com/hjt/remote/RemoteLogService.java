@@ -24,7 +24,7 @@ public interface RemoteLogService
      * @param sysOperLog 日志实体
      * @return 结果
      */
-    @PostMapping("/operlog")
+    @PostMapping("/operLog/api/v1/sys-oper-log")
     R<Boolean> saveLog(@RequestBody SysOperLog sysOperLog);
 
     /**

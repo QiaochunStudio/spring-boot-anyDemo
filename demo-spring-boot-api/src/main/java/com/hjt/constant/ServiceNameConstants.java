@@ -17,6 +17,8 @@ public class ServiceNameConstants
      */
     public static final String HJT_PLATFORM_SYSTEM = "hjt-platform-system";
 
+    public static final String HJT_PLATFORM_FILE = "hjt-platform-file";
+
     public static final String SYSTEM_SERVICE = "platform-system";
 
     /**

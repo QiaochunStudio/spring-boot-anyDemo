@@ -5,7 +5,7 @@
     <parent>
         <artifactId>springboot-project-demo</artifactId>
         <groupId>com.hjt</groupId>
-        <version>1.0.0.RELEASE</version>
+        <version>1.0.1.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -18,31 +18,36 @@
     </description>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>com.hjt</groupId>-->
-<!--            <artifactId>demo-spring-boot-common</artifactId>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>com.hjt</groupId>
             <artifactId>demo-spring-boot-api</artifactId>
         </dependency>
-                <dependency>
-                    <groupId>com.alibaba</groupId>
-                    <artifactId>fastjson</artifactId>
-                </dependency>
         <dependency>
             <groupId>com.hjt</groupId>
             <artifactId>demo-spring-boot-core</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.hjt</groupId>
+            <artifactId>demo-spring-boot-security</artifactId>
+        </dependency>
+
+
+
         <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>
 
-    </dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
 
+
+    </dependencies>
 
 
 </project>
