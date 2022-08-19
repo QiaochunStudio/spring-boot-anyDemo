@@ -7,6 +7,11 @@ package com.hjt.myException;
  */
 public class BaseException extends RuntimeException
 {
+    /***
+     * 自定义封装响应类型
+     */
+    private ResponseData responseCode;
+
     private static final long serialVersionUID = 1L;
 
     /**
@@ -60,6 +65,10 @@ public class BaseException extends RuntimeException
     public BaseException(String defaultMessage)
     {
         this(null, null, null, defaultMessage);
+    }
+
+    public BaseException(ResponseData responseCode){
+        this(responseCode.getModule(),responseCode.getCode(),responseCode.getDefaultMessage());
     }
 
     public String getModule()
