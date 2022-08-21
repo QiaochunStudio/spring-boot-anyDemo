@@ -22,7 +22,6 @@
     <properties>
         <hutool.version>5.1.4</hutool.version>
         <demo-spring-boot.version>1.0.1.RELEASE</demo-spring-boot.version>
-<!--        <mybatis-plus.version>3.5.1</mybatis-plus.version>-->
         <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <api-starter.version>1.2.0</api-starter.version>
         <pagehelper.version>5.3.0</pagehelper.version>
@@ -62,6 +61,7 @@
         <poi.version>4.1.2</poi.version>
         <metadata-extractor.version>2.11.0</metadata-extractor.version>
         <druid-spring-boot-starter.version>1.2.6</druid-spring-boot-starter.version>
+        <dysmsapi20170525.version>2.0.18</dysmsapi20170525.version>
     </properties>
 
     <!--引入公共的模块-->
@@ -368,6 +368,14 @@
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid-spring-boot-starter.version}</version>
             </dependency>
+
+            <!--阿里云短信服务sms-->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>dysmsapi20170525</artifactId>
+                <version>${dysmsapi20170525.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

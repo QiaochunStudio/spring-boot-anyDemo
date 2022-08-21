@@ -65,10 +65,6 @@
             <artifactId>demo-spring-boot-core</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.hjt</groupId>
-            <artifactId>demo-spring-boot-core</artifactId>
-        </dependency>
 
         <!--JWT解析库-->
         <dependency>

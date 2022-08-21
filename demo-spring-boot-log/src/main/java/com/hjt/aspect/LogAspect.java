@@ -135,9 +135,6 @@ public class LogAspect
                 String strJsonResult = json.toStringPretty();
                 operLog.setJsonResult(strJsonResult);
             }
-            else{
-                operLog.setJsonResult("输出为空");
-            }
             // 设置方法名称
             String className = joinPoint.getTarget().getClass().getName();
             String methodName = joinPoint.getSignature().getName();
