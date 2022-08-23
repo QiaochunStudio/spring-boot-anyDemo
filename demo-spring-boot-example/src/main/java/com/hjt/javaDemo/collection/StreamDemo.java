@@ -1,7 +1,10 @@
 package com.hjt.javaDemo.collection;
 
+import com.hjt.javaDemo.collection.domain.Person;
 import com.hjt.javaDemo.collection.domain.Pig;
 import com.hjt.javaDemo.collection.domain.User;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.PatternMatchUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.*;
@@ -13,6 +16,7 @@ import java.util.stream.Stream;
  * @author hjt
  */
 public class StreamDemo {
+
 
     public static void testMap() {
         Map<String, String> map = new HashMap<>();
@@ -304,6 +308,57 @@ public class StreamDemo {
 
     }
 
+    /***
+     *anyMatch 只要有一个满足条件，返回true
+     */
+    public static void streamAnyMatch(){
+        Person p1 = new Person(1, "A", 10);
+        Person p2 = new Person(2, "B", 12);
+        Person p3 = new Person(3, "C", 17);
+        Person p4 = new Person(4, "D", 12);
+        List<Person> list = Arrays.asList(p1, p2, p3, p4);
+        // list中有年龄大于13的返回true
+        boolean flag = list.stream().anyMatch(item -> item.getAge() > 13);
+        System.out.println(flag);
+
+    }
+
+    /***
+     * 判断是否拥有改权限
+     * @param authorities
+     * @param permission
+     * @return
+     */
+    private static boolean hasPermissions(Collection<String> authorities, String permission) {
+        return authorities.stream().anyMatch((x) -> {
+            return "*:*:*".contains(x) || PatternMatchUtils.simpleMatch(permission, x);
+        });
+    }
+
+    private static boolean hasPermissions1(Collection<String> authorities, String permission)
+    {
+        return authorities.stream().anyMatch(x -> "*:*:*".contains(x) || PatternMatchUtils.simpleMatch(permission, x));
+    }
+
+    /**
+     * 判断是否包含权限
+     *
+     * @param authorities 权限列表
+     * @param permission 权限字符串
+     * @return 用户是否具备某权限
+     */
+    private static boolean hasPermissions2(Collection<String> authorities, String permission)
+    {
+        if(CollectionUtils.isEmpty(authorities)){
+            return false;
+        }
+        for(String str:authorities){
+            if(str.equals(permission)){
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         //测试list
 //        testList();
@@ -314,7 +369,16 @@ public class StreamDemo {
 //        testStreamDistinct();
 //        testStreamMatch();
 //        testStreamReduce();
-        testStreamImport();
+//        testStreamImport();
+//        streamAnyMatch();
+        Set<String> set = new HashSet();
+
+        String s= "['model:file:removeBucket']";
+        String[] split = s.split(",");
+        set = new HashSet(Arrays.asList(split));
+        System.out.println(set);
+        boolean b = hasPermissions2(set, "model:file:removeBucket");
+        System.out.println("222:"+b);
     }
 
 }

@@ -10,5 +10,5 @@ public class RedisConstants {
      * 验证码缓存
      * redis存 手机号码:CODE
      */
-    public static final String PHONE_NUMBER_CODE = ":CODE";
+    public static final String PHONE_NUMBER_CODE = ":code";
 }

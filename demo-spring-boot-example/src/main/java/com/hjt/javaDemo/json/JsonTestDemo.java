@@ -1,9 +1,7 @@
 package com.hjt.javaDemo.json;
 
-import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import java.util.*;
 import com.hjt.javaDemo.collection.domain.User;
 
 /***

@@ -1,8 +1,12 @@
 package com.hjt.service;
 
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import com.hjt.constant.CacheConstants;
 import com.hjt.constant.Constants;
 import com.hjt.domain.LoginUser;
+import com.hjt.domain.SysUser;
 import com.hjt.util.IpUtils;
 import com.hjt.util.SecurityUtils;
 import com.hjt.util.ServletUtils;
@@ -13,8 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -34,26 +37,26 @@ public class TokenService
 
     protected static final long MILLIS_SECOND = 1000;
 
-    /**
-     * 创建令牌
-     */
-    public Map<String, Object> createToken(LoginUser loginUser)
-    {
-        // 生成token
-        String token = IdUtils.fastUUID();
-        loginUser.setToken(token);
-        loginUser.setUserid(loginUser.getSysUser().getUserId());
-        loginUser.setUsername(loginUser.getSysUser().getUserName());
-        loginUser.setIpaddr(IpUtils.getIpAddr(ServletUtils.getRequest()));
-        refreshToken(loginUser);
-
-        // 保存或更新用户token
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("access_token", token);
-        map.put("expires_in", EXPIRE_TIME);
-        redisService.setCacheObject(ACCESS_TOKEN + token, loginUser, EXPIRE_TIME, TimeUnit.SECONDS);
-        return map;
-    }
+//    /**
+//     * 创建令牌
+//     */
+//    public Map<String, Object> createToken(LoginUser loginUser)
+//    {
+//        // 生成token
+//        String token = IdUtils.fastUUID();
+//        loginUser.setToken(token);
+//        loginUser.setUserid(loginUser.getSysUser().getUserId());
+//        loginUser.setUsername(loginUser.getSysUser().getUserName());
+//        loginUser.setIpaddr(IpUtils.getIpAddr(ServletUtils.getRequest()));
+//        refreshToken(loginUser);
+//
+//        // 保存或更新用户token
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        map.put("access_token", token);
+//        map.put("expires_in", EXPIRE_TIME);
+//        redisService.setCacheObject(ACCESS_TOKEN + token, loginUser, EXPIRE_TIME, TimeUnit.SECONDS);
+//        return map;
+//    }
 
     /**
      * 获取用户身份信息
@@ -77,8 +80,8 @@ public class TokenService
         if (StringUtils.isNotEmpty(token))
         {
             String userKey = getTokenKey(token);
-            LoginUser user = redisService.getCacheObject(userKey);
-            return user;
+            LoginUser loginUser = (LoginUser)redisService.getCacheObject(userKey);
+            return loginUser;
         }
         return null;
     }

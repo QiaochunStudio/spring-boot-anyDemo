@@ -35,19 +35,13 @@ public class SecurityUtils {
      * 获取用户
      */
     public static SysUser getUser() {
-        SysUser sysUser = null;
+
         // 获取请求携带的令牌
         String token = getToken(ServletUtils.getRequest());
         if (StringUtils.isNotEmpty(token)) {
-            JSONObject jsonLoginUser = (JSONObject) redisService.getCacheObject(CacheConstants.LOGIN_TOKEN_KEY + token);
-            if (ObjectUtil.isNotNull(jsonLoginUser)) {
-                //转为字符串
-                String username = jsonLoginUser.getStr("username");
-                String userid = jsonLoginUser.getStr("userid");
-                sysUser = new SysUser();
-                sysUser.setUserName(username);
-                sysUser.setUserId(Long.valueOf(userid));
-                return sysUser;
+            LoginUser loginUser = (LoginUser) redisService.getCacheObject(CacheConstants.LOGIN_TOKEN_KEY + token);
+            if (ObjectUtil.isNotNull(loginUser)) {
+                return loginUser.getSysUser();
             }
         }
         return null;

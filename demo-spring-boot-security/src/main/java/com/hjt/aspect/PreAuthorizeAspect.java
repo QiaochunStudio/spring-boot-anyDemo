@@ -6,6 +6,8 @@ import com.hjt.domain.LoginUser;
 import com.hjt.exception.PreAuthorizeException;
 import com.hjt.myException.BaseException;
 import com.hjt.service.TokenService;
+import org.apache.ibatis.logging.Log;
+import org.apache.ibatis.logging.LogFactory;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
@@ -29,6 +31,8 @@ import java.util.Collection;
 @Component
 public class PreAuthorizeAspect
 {
+
+    protected Log log = LogFactory.getLog(this.getClass());
     @Autowired
     private TokenService tokenService;
 
@@ -49,9 +53,6 @@ public class PreAuthorizeAspect
         Method method = methodSignature.getMethod();
         PreAuthorize annotation = method.getAnnotation(PreAuthorize.class);
         System.out.println("--------------------------");
-//        if(1==1){
-//            return point.proceed();
-//        }
         if (annotation == null)
         {
             return point.proceed();
