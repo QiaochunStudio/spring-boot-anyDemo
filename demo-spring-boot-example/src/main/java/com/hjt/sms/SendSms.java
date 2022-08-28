@@ -19,7 +19,7 @@ public class SendSms {
 
     public static void main(String[] args) {
 
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAI5tHMtvXWyMrMNvhJ9MJB", "nCBFs8fooDSXhVwviwo9VQ0r11BZtZ");
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "", "");
         /** use STS Token
          DefaultProfile profile = DefaultProfile.getProfile(
          "<your-region-id>",           // The region ID
@@ -32,11 +32,11 @@ public class SendSms {
 
         SendSmsRequest request = new SendSmsRequest();
 //发送手机号码
-        request.setPhoneNumbers("15802065479");
+        request.setPhoneNumbers("");
         //模板名称
         request.setSignName("ABC商城");
         //模板Code
-        request.setTemplateCode("SMS_197485345");
+        request.setTemplateCode("");
         //构建验证码
         HashMap<String,Object> map = new HashMap<>();
         map.put("code","1314");

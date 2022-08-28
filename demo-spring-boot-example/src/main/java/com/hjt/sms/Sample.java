@@ -43,14 +43,14 @@ public class Sample {
 
     public static void main(String[] args_) throws Exception {
         java.util.List<String> args = java.util.Arrays.asList(args_);
-        com.aliyun.dysmsapi20170525.Client client = Sample.createClient("LTAI5tHMtvXWyMrMNvhJ9MJB", "nCBFs8fooDSXhVwviwo9VQ0r11BZtZ");
+        com.aliyun.dysmsapi20170525.Client client = Sample.createClient("", "");
         SendSmsRequest sendSmsRequest = new SendSmsRequest();
         //发送手机号码
-        sendSmsRequest.setPhoneNumbers("13380756433");
+        sendSmsRequest.setPhoneNumbers("");
         //模板名称
         sendSmsRequest.setSignName("ABC商城");
         //模板Code
-        sendSmsRequest.setTemplateCode("SMS_197485345");
+        sendSmsRequest.setTemplateCode("");
         //构建验证码
         HashMap<String,Object> map = new HashMap<>();
         map.put("code","520521");
