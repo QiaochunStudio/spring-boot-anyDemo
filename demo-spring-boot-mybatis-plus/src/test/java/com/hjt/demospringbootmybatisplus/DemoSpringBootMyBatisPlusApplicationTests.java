@@ -1,6 +1,6 @@
 package com.hjt.demospringbootmybatisplus;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -10,9 +10,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class DemoSpringBootMyBatisPlusApplicationTests {
 
+    /***
+     * 必须是public
+     */
     @Test
-    void contextLoad() {
-
+   public void contextLoad() {
+        System.out.println("1111");
     }
 
 }

@@ -145,7 +145,7 @@
         <repository>
             <id>nexus</id>
             <name>hjt-maven-release</name>
-            <url>http://139.159.192.208:8082/repository/hjt-maven-release/</url>
+            <url>http://116.205.224.23:8082/repository/hjt-maven-release/</url>
         </repository>
 
         <!--        <snapshotRepository>-->

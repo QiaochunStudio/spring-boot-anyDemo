@@ -62,6 +62,7 @@
         <metadata-extractor.version>2.11.0</metadata-extractor.version>
         <druid-spring-boot-starter.version>1.2.6</druid-spring-boot-starter.version>
         <dysmsapi20170525.version>2.0.18</dysmsapi20170525.version>
+
     </properties>
 
     <!--引入公共的模块-->
@@ -376,6 +377,8 @@
                 <version>${dysmsapi20170525.version}</version>
             </dependency>
 
+
+
         </dependencies>
     </dependencyManagement>
 
@@ -398,7 +401,7 @@
         <repository>
             <id>nexus</id>
             <name>hjt-maven-release</name>
-            <url>http://139.159.192.208:8082/repository/hjt-maven-release/</url>
+            <url>http://116.205.224.23:8082/repository/hjt-maven-release/</url>
         </repository>
         <!--        <snapshotRepository>-->
         <!--            <id>yusui-snapshots</id>-->

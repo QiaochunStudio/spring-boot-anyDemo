@@ -155,7 +155,7 @@ public class StreamDemo {
         users.add(hjt1);
         users.add(hjt);
         //普通的排序取值
-        List<User> list11 = users.stream().sorted((u1, u2) -> u1.getUserName().compareTo(u2.getUserName())).limit(3)
+            List<User> list11 = users.stream().sorted((u1, u2) -> u1.getUserName().compareTo(u2.getUserName())).limit(3)
                 .collect(Collectors.toList());
         System.out.println("排序之后的数据:" + list11);
         //优化排序取值
