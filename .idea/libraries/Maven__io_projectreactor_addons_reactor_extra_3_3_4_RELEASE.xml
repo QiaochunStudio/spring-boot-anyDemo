@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: io.projectreactor.addons:reactor-extra:3.3.4.RELEASE">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/io/projectreactor/addons/reactor-extra/3.3.4.RELEASE/reactor-extra-3.3.4.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/io/projectreactor/addons/reactor-extra/3.3.4.RELEASE/reactor-extra-3.3.4.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/io/projectreactor/addons/reactor-extra/3.3.4.RELEASE/reactor-extra-3.3.4.RELEASE-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/io/projectreactor/addons/reactor-extra/3.3.4.RELEASE/reactor-extra-3.3.4.RELEASE-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/io/projectreactor/addons/reactor-extra/3.3.4.RELEASE/reactor-extra-3.3.4.RELEASE-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/io/projectreactor/addons/reactor-extra/3.3.4.RELEASE/reactor-extra-3.3.4.RELEASE-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

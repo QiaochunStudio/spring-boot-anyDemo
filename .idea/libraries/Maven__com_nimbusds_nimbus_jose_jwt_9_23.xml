@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.nimbusds:nimbus-jose-jwt:9.23">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/com/nimbusds/nimbus-jose-jwt/9.23/nimbus-jose-jwt-9.23.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/com/nimbusds/nimbus-jose-jwt/9.23/nimbus-jose-jwt-9.23.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/com/nimbusds/nimbus-jose-jwt/9.23/nimbus-jose-jwt-9.23-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/com/nimbusds/nimbus-jose-jwt/9.23/nimbus-jose-jwt-9.23-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/com/nimbusds/nimbus-jose-jwt/9.23/nimbus-jose-jwt-9.23-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/com/nimbusds/nimbus-jose-jwt/9.23/nimbus-jose-jwt-9.23-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

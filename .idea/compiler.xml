@@ -10,7 +10,7 @@
         <module name="demo-spring-boot-security" />
         <module name="demo-springCloud-seata-stock" />
         <module name="demo-oauth2-auth" />
-        <module name="demo-spring-boot-example" />
+        <module name="demo-spring-boot-example-easyExcel" />
         <module name="demo-spring-boot-gateway" />
         <module name="demo-spring-boot-mybatis-plus" />
         <module name="demo-spring-boot-core" />
@@ -27,6 +27,7 @@
         <module name="demo-springCloud-client" />
         <module name="demo-oauth2-api" />
         <module name="demo-oauth2-gateway" />
+        <module name="demo-spring-boot-example-java" />
         <module name="demo-spring-boot-api" />
         <module name="demo-spring-boot-redis" />
       </profile>
@@ -41,6 +42,8 @@
       <module name="demo-spring-boot-core" target="1.8" />
       <module name="demo-spring-boot-druid" target="1.8" />
       <module name="demo-spring-boot-example" target="1.8" />
+      <module name="demo-spring-boot-example-easyExcel" target="1.8" />
+      <module name="demo-spring-boot-example-java" target="1.8" />
       <module name="demo-spring-boot-file" target="1.8" />
       <module name="demo-spring-boot-gateway" target="1.8" />
       <module name="demo-spring-boot-generator" target="1.8" />

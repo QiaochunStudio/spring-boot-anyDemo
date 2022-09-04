@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: io.reactivex:rxjava-reactive-streams:1.2.1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/io/reactivex/rxjava-reactive-streams/1.2.1/rxjava-reactive-streams-1.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/io/reactivex/rxjava-reactive-streams/1.2.1/rxjava-reactive-streams-1.2.1.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/io/reactivex/rxjava-reactive-streams/1.2.1/rxjava-reactive-streams-1.2.1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/io/reactivex/rxjava-reactive-streams/1.2.1/rxjava-reactive-streams-1.2.1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/io/reactivex/rxjava-reactive-streams/1.2.1/rxjava-reactive-streams-1.2.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/io/reactivex/rxjava-reactive-streams/1.2.1/rxjava-reactive-streams-1.2.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

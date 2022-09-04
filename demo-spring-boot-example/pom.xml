@@ -5,48 +5,28 @@
     <parent>
         <artifactId>springboot-project-demo</artifactId>
         <groupId>com.hjt</groupId>
-        <version>1.0.1.RELEASE</version>
+        <version>1.0.2.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>demo-spring-boot-example</artifactId>
+    <packaging>pom</packaging>
 
     <description>该项目的demo项目,不进行版本控制</description>
+    <modules>
+        <module>demo-spring-boot-example-java</module>
+        <module>demo-spring-boot-example-easyExcel</module>
+    </modules>
 
     <dependencies>
         <dependency>
-            <groupId>com.hjt</groupId>
-            <artifactId>demo-spring-boot-gateway</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
-
+        <!--Hutool Java工具包-->
         <dependency>
-            <groupId>com.hjt</groupId>
-            <artifactId>demo-spring-boot-common</artifactId>
-        </dependency>
-
-        <!--短信服务-->
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>dysmsapi20170525</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
-            <version>2.2.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
-            <version>2.2.1</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-core -->
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-java-sdk-core</artifactId>
-            <version>4.6.0</version>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
         </dependency>
 
 

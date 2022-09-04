@@ -11,6 +11,8 @@
       <module fileurl="file://$PROJECT_DIR$/demo-spring-boot-core/demo-spring-boot-core.iml" filepath="$PROJECT_DIR$/demo-spring-boot-core/demo-spring-boot-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-spring-boot-druid/demo-spring-boot-druid.iml" filepath="$PROJECT_DIR$/demo-spring-boot-druid/demo-spring-boot-druid.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-spring-boot-example/demo-spring-boot-example.iml" filepath="$PROJECT_DIR$/demo-spring-boot-example/demo-spring-boot-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-spring-boot-example/demo-spring-boot-example-easyExcel/demo-spring-boot-example-easyExcel.iml" filepath="$PROJECT_DIR$/demo-spring-boot-example/demo-spring-boot-example-easyExcel/demo-spring-boot-example-easyExcel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-spring-boot-example/demo-spring-boot-example-java/demo-spring-boot-example-java.iml" filepath="$PROJECT_DIR$/demo-spring-boot-example/demo-spring-boot-example-java/demo-spring-boot-example-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-spring-boot-gateway/demo-spring-boot-gateway.iml" filepath="$PROJECT_DIR$/demo-spring-boot-gateway/demo-spring-boot-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-spring-boot-generator/demo-spring-boot-generator.iml" filepath="$PROJECT_DIR$/demo-spring-boot-generator/demo-spring-boot-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-spring-boot-log/demo-spring-boot-log.iml" filepath="$PROJECT_DIR$/demo-spring-boot-log/demo-spring-boot-log.iml" />

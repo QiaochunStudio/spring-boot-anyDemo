@@ -3,12 +3,18 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/demo-spring-boot-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-spring-boot-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-spring-boot-bom/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-spring-boot-bom/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-spring-boot-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-spring-boot-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-spring-boot-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-spring-boot-core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-spring-boot-druid/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-spring-boot-druid/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-spring-boot-example/demo-spring-boot-example-easyExcel/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-spring-boot-example/demo-spring-boot-example-easyExcel/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-spring-boot-example/demo-spring-boot-example-java/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-spring-boot-example/demo-spring-boot-example-java/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-spring-boot-example/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-spring-boot-example/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-spring-boot-gateway/src/main/java" charset="UTF-8" />
@@ -37,11 +43,19 @@
     <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-oauth2/demo-oauth2-auth/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-oauth2/demo-oauth2-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-oauth2/demo-oauth2-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-oauth2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-oauth2/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-seata/demo-springCloud-seata-order/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-seata/demo-springCloud-seata-order/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-seata/demo-springCloud-seata-stock/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-seata/demo-springCloud-seata-stock/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-seata/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-seata/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-sentinel-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-springCloud/demo-springCloud-sentinel-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-springCloud/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-springCloud/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
 </project>

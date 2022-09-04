@@ -1,0 +1,15 @@
+knife4j:
+  enable: true
+  # 开启生产环境屏蔽  true 关闭swagger   false 开启swagger
+  production: false
+server:
+  port: 6060
+
+springfox:
+  documentation:
+    enabled: true
+
+
+
+
+

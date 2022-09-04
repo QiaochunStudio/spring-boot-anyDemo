@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.baomidou:mybatis-plus-generator:3.3.1.tmp">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/com/baomidou/mybatis-plus-generator/3.3.1.tmp/mybatis-plus-generator-3.3.1.tmp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/com/baomidou/mybatis-plus-generator/3.3.1.tmp/mybatis-plus-generator-3.3.1.tmp.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/com/baomidou/mybatis-plus-generator/3.3.1.tmp/mybatis-plus-generator-3.3.1.tmp-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/com/baomidou/mybatis-plus-generator/3.3.1.tmp/mybatis-plus-generator-3.3.1.tmp-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../apache-maven-3.8.1-bin/localMaven3.8.1/com/baomidou/mybatis-plus-generator/3.3.1.tmp/mybatis-plus-generator-3.3.1.tmp-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../maven/localMaven/com/baomidou/mybatis-plus-generator/3.3.1.tmp/mybatis-plus-generator-3.3.1.tmp-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
