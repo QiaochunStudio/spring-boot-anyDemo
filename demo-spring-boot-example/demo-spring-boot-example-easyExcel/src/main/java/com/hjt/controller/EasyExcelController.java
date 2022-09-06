@@ -1,14 +1,20 @@
 package com.hjt.controller;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.json.JSONUtil;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.support.ExcelTypeEnum;
+import com.alibaba.excel.util.MapUtils;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.hjt.common.api.CommonResult;
 import com.hjt.domain.Member;
 import com.hjt.domain.Order;
 import com.hjt.domain.OrderData;
 import com.hjt.domain.Product;
+import com.hjt.read.IndexOrNameDataListener;
 import com.hjt.strategy.CustomMergeStrategy;
+import com.hjt.testSysUser.entity.SysUser;
+import com.hjt.testSysUser.mapper.SysUserMapper;
 import com.hjt.util.LocalJsonUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,21 +26,26 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * EasyExcel导入导出测试Controller
  * Created by hjt on 2021/10/12.
  */
 @Controller
-@Api(tags = "EasyExcelController", description = "EasyExcel导入导出测试")
+@Api(tags = "EasyExcelController")
 @RequestMapping("/easyExcel")
 public class EasyExcelController {
+
+    @Resource
+    private SysUserMapper sysUserMapper;
 
     @SneakyThrows(IOException.class)
     @ApiOperation(value = "导出会员列表Excel")
@@ -111,4 +122,82 @@ public class EasyExcelController {
         }
         return orderList;
     }
+
+
+    @SneakyThrows(IOException.class)
+    @ApiOperation(value = "导出SysUser用户列表Excel并上传到云上")
+    @RequestMapping(value = "/exportSysUserList", method = RequestMethod.GET)
+    public void exportSysUserList(HttpServletResponse response) {
+        try{
+            String fileName = "用户列表";
+            setExcelRespPropByHjt(response, fileName,ExcelTypeEnum.XLSX);
+            LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+            List<SysUser> sysUsers = sysUserMapper.selectList(lambdaQueryWrapper);
+            EasyExcel.write(response.getOutputStream())
+                    .autoCloseStream(Boolean.FALSE)
+                    .head(SysUser.class)
+                    .excelType(ExcelTypeEnum.XLSX)
+                    .sheet("用户列表")
+                    .doWrite(sysUsers);
+        }catch (Exception e){
+            // 重置response
+            response.reset();
+            response.setContentType("application/json");
+            response.setCharacterEncoding("utf-8");
+            Map<String, String> map = MapUtils.newHashMap();
+            map.put("status", "failure");
+            map.put("message", "下载文件失败" + e.getMessage());
+            response.getWriter().println(JSONUtil.toJsonStr(map));
+        }
+
+    }
+
+
+
+    @SneakyThrows
+    @ApiOperation("从Excel导入SysUser表并读取数据")
+    @RequestMapping(value = "/importSysUserList", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult importSysUserList(@RequestPart("file") MultipartFile file) {
+//        //官网例子代码
+//        String fileName = TestFileUtil.getPath() + "demo" + File.separator + "用户列表.xlsx";
+//        // 这里默认读取第一个sheet
+//        EasyExcel.read(fileName, SysUser.class, new IndexOrNameDataListener()).sheet().doRead();
+
+        List<SysUser> sysUsersList = EasyExcel.read(file.getInputStream(),new IndexOrNameDataListener())
+                .head(SysUser.class)
+                .sheet()
+                .doReadSync();
+        return CommonResult.success(sysUsersList);
+    }
+
+
+
+
+
+
+
+    /**
+     * 设置excel下载响应头属性
+     */
+    private void setExcelRespPropByHjt(HttpServletResponse response, String rawFileName,ExcelTypeEnum fileType) throws UnsupportedEncodingException {
+        //设置文件类型
+        String contentType = "";
+        if(fileType.getValue().equals(".csv")){
+            contentType = "text/csv";
+        }
+        if(fileType.getValue().equals(".xlxs")){
+            contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+        }
+        if(fileType.getValue().equals(".xls")){
+            contentType = "application/vnd.ms-excel";
+        }
+        response.setContentType(contentType);
+        response.setCharacterEncoding("utf-8");
+        String fileName = URLEncoder.encode(rawFileName, "UTF-8").replaceAll("\\+", "%20");
+        response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + fileName + fileType.getValue());
+    }
+
+
+
 }

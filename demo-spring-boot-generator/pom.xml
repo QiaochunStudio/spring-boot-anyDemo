@@ -98,11 +98,15 @@
         </dependency>
 
 
-        <!--导入公共依赖包 返回类型-->
+        <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
         <dependency>
-            <groupId>com.hjt</groupId>
-            <artifactId>demo-spring-boot-common</artifactId>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.28</version>
         </dependency>
+
+
+
 
 
     </dependencies>
