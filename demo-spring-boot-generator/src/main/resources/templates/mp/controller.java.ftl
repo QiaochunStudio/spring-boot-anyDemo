@@ -50,7 +50,9 @@ public class ${table.controllerName} {
     */
     @ApiOperation(value = "${entity}查询分页")
     @RequestMapping(method = RequestMethod.GET)
-    public AjaxResult listByPage(int page,int pageSize,${entity} factor) {
+    public AjaxResult listByPage(
+    @RequestParam(value = "page",defaultValue = "10")int page,
+    @RequestParam(value = "pageSize",defaultValue = "10")int pageSize,${entity} factor) {
         return AjaxResult.success(${table.serviceName?uncap_first}.list${entity}sByPage(page, pageSize,factor));
     }
 

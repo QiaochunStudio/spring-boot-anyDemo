@@ -7,7 +7,7 @@
     <groupId>com.hjt</groupId>
     <artifactId>springboot-project-demo</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.2.RELEASE</version>
+    <version>1.0.4.RELEASE</version>
     <description>hjt demo 案例</description>
 
 
@@ -57,7 +57,7 @@
             <dependency>
                 <groupId>com.hjt</groupId>
                 <artifactId>demo-spring-boot-bom</artifactId>
-                <version>1.0.2.RELEASE</version>
+                <version>1.0.4.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -138,6 +138,13 @@
             <id>spring-milestone</id>
             <url>https://repo.spring.io/milestone</url>
         </repository>
+
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+
+
     </repositories>
 
     <!--打包到自己的依赖-->
@@ -145,7 +152,7 @@
         <repository>
             <id>nexus</id>
             <name>hjt-maven-release</name>
-            <url>http://116.205.224.23:8082/repository/hjt-maven-release/</url>
+            <url>http://1.15.180.135:8082/repository/hjt-maven-release/</url>
         </repository>
 
         <!--        <snapshotRepository>-->

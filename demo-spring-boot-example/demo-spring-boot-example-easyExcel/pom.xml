@@ -5,7 +5,7 @@
     <parent>
         <artifactId>demo-spring-boot-example</artifactId>
         <groupId>com.hjt</groupId>
-        <version>1.0.2.RELEASE</version>
+        <version>1.0.4.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -89,6 +89,25 @@
         <dependency>
             <groupId>com.hjt</groupId>
             <artifactId>demo-spring-boot-druid</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>2.7.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hjt</groupId>
+            <artifactId>demo-spring-boot-core</artifactId>
         </dependency>
 
 

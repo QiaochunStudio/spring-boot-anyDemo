@@ -18,7 +18,6 @@ import javax.annotation.Resource;
  * @date 2019/8/21
  */
 @Component
-
 public class Runner implements CommandLineRunner {
 
     @Resource
@@ -45,10 +44,10 @@ public class Runner implements CommandLineRunner {
         //订单  顺序消息
 //        orderProducer.sendSyncOrderly();
         //顺序消息测这个 1 2 3 4
-        orderProducer.testSendSyncOrderly1();
-        orderProducer.testSendSyncOrderly2();
-        orderProducer.testSendSyncOrderly3();
-        orderProducer.testSendSyncOrderly4();
+//        orderProducer.testSendSyncOrderly1();
+//        orderProducer.testSendSyncOrderly2();
+//        orderProducer.testSendSyncOrderly3();
+//        orderProducer.testSendSyncOrderly4();
         //事务消息
 //        tagProducer.sendTagsMessage();
         //延迟消息

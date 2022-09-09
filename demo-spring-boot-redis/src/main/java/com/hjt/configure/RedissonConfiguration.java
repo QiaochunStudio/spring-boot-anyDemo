@@ -32,7 +32,7 @@ public class RedissonConfiguration {
             Config config = new Config();
             config.useSingleServer()
                     .setAddress(prefix + redissonProperties.getAddressUrl()).setPassword(redissonProperties.getPassword())
-                    .setReconnectionTimeout(redissonProperties.getReconnectionTimeout())
+                    .setConnectTimeout(redissonProperties.getReconnectionTimeout())
                     .setRetryInterval(redissonProperties.getRetryInterval())
                     .setTimeout(redissonProperties.getTimeout())
                     .setConnectTimeout(redissonProperties.getConnectTimeout());

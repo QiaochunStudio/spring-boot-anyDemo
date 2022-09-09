@@ -18,4 +18,9 @@ public class DemoSpringBootMyBatisPlusApplicationTests {
         System.out.println("1111");
     }
 
+
+    /***
+     * 雪花算法
+     */
+
 }

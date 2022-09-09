@@ -13,7 +13,7 @@
     <artifactId>demo-spring-boot-bom</artifactId>
     <groupId>com.hjt</groupId>
     <name>${project.artifactId}</name>
-    <version>1.0.2.RELEASE</version>
+    <version>1.0.4.RELEASE</version>
     <packaging>pom</packaging>
     <description>
         demo-spring-boot-bom 依赖版本控制模块
@@ -21,7 +21,7 @@
 
     <properties>
         <hutool.version>5.1.4</hutool.version>
-        <demo-spring-boot.version>1.0.2.RELEASE</demo-spring-boot.version>
+        <demo-spring-boot.version>1.0.4.RELEASE</demo-spring-boot.version>
         <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <api-starter.version>1.2.0</api-starter.version>
         <pagehelper.version>5.3.0</pagehelper.version>
@@ -41,7 +41,7 @@
         <fastjson.version>1.2.75</fastjson.version>
         <gson.version>2.8.9</gson.version>
         <spring-boot-redis-version>2.3.7.RELEASE</spring-boot-redis-version>
-        <redisson.version>3.5.0</redisson.version>
+        <redisson.version>3.17.4</redisson.version>
         <openfign-starter.version>2.2.6.RELEASE</openfign-starter.version>
         <sharding-jdbc-core>2.0.3</sharding-jdbc-core>
         <druid>1.1.21</druid>
@@ -63,7 +63,8 @@
         <druid-spring-boot-starter.version>1.2.6</druid-spring-boot-starter.version>
         <dysmsapi20170525.version>2.0.18</dysmsapi20170525.version>
         <easyexcel.version>3.1.1</easyexcel.version>
-
+        <!--xxl-job版本-->
+        <xxl-job-core.version>2.3.1</xxl-job-core.version>
     </properties>
 
     <!--引入公共的模块-->
@@ -385,6 +386,17 @@
                 <version>${easyexcel.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/com.xuxueli/xxl-job-core -->
+            <!--xxl-job-->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job-core.version}</version>
+            </dependency>
+
+
+
+
 
 
         </dependencies>
@@ -409,7 +421,7 @@
         <repository>
             <id>nexus</id>
             <name>hjt-maven-release</name>
-            <url>http://116.205.224.23:8082/repository/hjt-maven-release/</url>
+            <url>http://1.15.180.135:8082/repository/hjt-maven-release/</url>
         </repository>
         <!--        <snapshotRepository>-->
         <!--            <id>yusui-snapshots</id>-->
