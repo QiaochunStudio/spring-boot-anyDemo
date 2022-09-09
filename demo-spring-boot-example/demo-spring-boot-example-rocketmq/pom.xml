@@ -3,20 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>springboot-project-demo</artifactId>
+        <artifactId>demo-spring-boot-example</artifactId>
         <groupId>com.hjt</groupId>
         <version>1.0.4.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-spring-boot-rocketmq</artifactId>
+    <artifactId>demo-spring-boot-example-rocketmq</artifactId>
     <name>${project.artifactId}</name>
     <version>${project.parent.version}</version>
     <packaging>jar</packaging>
     <description>
-        demo-spring-boot-rocketmq 消息队列
+        demo-spring-boot-rocketmq 消息队列demo
     </description>
 
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.rocketmq/rocketmq-spring-boot-starter -->
         <dependency>
@@ -24,12 +28,27 @@
             <artifactId>rocketmq-spring-boot-starter</artifactId>
         </dependency>
 
+        <!--test环境引入的依赖-->
+
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-context</artifactId>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
         </dependency>
 
 
     </dependencies>
+
+
+
 
 </project>

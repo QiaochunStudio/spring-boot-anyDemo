@@ -1,6 +1,5 @@
 package com.hjt.transaction;
 
-import com.hjt.message.Message;
 import com.hjt.message.MessageTransaction;
 import com.hjt.transaction.mapper.TransactionMapper;
 import lombok.extern.slf4j.Slf4j;

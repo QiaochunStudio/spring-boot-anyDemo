@@ -16,6 +16,7 @@
     <modules>
         <module>demo-spring-boot-example-java</module>
         <module>demo-spring-boot-example-easyExcel</module>
+        <module>demo-spring-boot-example-rocketmq</module>
     </modules>
 
     <dependencies>
