@@ -58,7 +58,7 @@ public class Runner implements CommandLineRunner {
 //        tagProducer.sendTagsMessage();
 
         //事务处理
-        transactionProducer.produce();
+//        transactionProducer.produce();
 //        messageModelProducer.send();
     }
 

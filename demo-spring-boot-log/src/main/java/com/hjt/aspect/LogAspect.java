@@ -106,35 +106,42 @@ public class LogAspect
             {
                 operLog.setOperName(username);
             }
-
-            //把自定义异常的返回结果封装成json
-            BaseException exceptionData = (BaseException)e;
-            if(ObjectUtil.isNotNull(exceptionData)){
-                SortedMap<Object, Object> sortedMap = new TreeMap<Object, Object>() {
-                    private static final long serialVersionUID = 1L;
-                    {
-                        put("code", exceptionData.getCode());
-                        put("module", exceptionData.getModule());
-                        put("msg", exceptionData.getDefaultMessage());
-                    }};
-                //转成json
-                String resultJson = JSONUtil.toJsonPrettyStr(sortedMap);
-                operLog.setJsonResult(JSON.toJSONString(resultJson));
+            //处理空指针异常
+            if(ObjectUtil.isNull(e)){
+                operLog.setJsonResult("java.lang.NullPointerException");
             }
-            //没发生异常就正常输出,正常的jsonResult也记录
-            if (e != null)
-            {
-//                operLog.setStatus()
-                operLog.setStatus(BusinessStatus.FAIL.ordinal());
-                operLog.setErrorMsg(StringUtils.substring(e.getMessage(), 0, 2000));
-            }
-            if(ObjectUtil.isNotNull(jsonResult)){
+            //不是空指针异常
+            else {
+                //把自定义异常的返回结果封装成json
+                BaseException exceptionData = (BaseException)e;
+                if(ObjectUtil.isNotNull(exceptionData)){
+                    SortedMap<Object, Object> sortedMap = new TreeMap<Object, Object>() {
+                        private static final long serialVersionUID = 1L;
+                        {
+                            put("code", exceptionData.getCode());
+                            put("module", exceptionData.getModule());
+                            put("msg", exceptionData.getDefaultMessage());
+                        }};
+                    //转成json
+                    String resultJson = JSONUtil.toJsonPrettyStr(sortedMap);
+                    operLog.setJsonResult(JSON.toJSONString(resultJson));
+                }
                 //没发生异常就正常输出,正常的jsonResult也记录
-                // hutool工具类把正常的jsonResult对象转为json,false表示不跳过空值
-                JSONObject json = JSONUtil.parseObj(jsonResult, false);
-                String strJsonResult = json.toStringPretty();
-                operLog.setJsonResult(strJsonResult);
+                if (e != null)
+                {
+//                operLog.setStatus()
+                    operLog.setStatus(BusinessStatus.FAIL.ordinal());
+                    operLog.setErrorMsg(StringUtils.substring(e.getMessage(), 0, 2000));
+                }
+                if(ObjectUtil.isNotNull(jsonResult)){
+                    //没发生异常就正常输出,正常的jsonResult也记录
+                    // hutool工具类把正常的jsonResult对象转为json,false表示不跳过空值
+                    JSONObject json = JSONUtil.parseObj(jsonResult, false);
+                    String strJsonResult = json.toStringPretty();
+                    operLog.setJsonResult(strJsonResult);
+                }
             }
+
             // 设置方法名称
             String className = joinPoint.getTarget().getClass().getName();
             String methodName = joinPoint.getSignature().getName();
