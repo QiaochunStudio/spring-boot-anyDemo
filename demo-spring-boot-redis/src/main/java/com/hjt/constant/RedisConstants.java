@@ -15,9 +15,9 @@ public class RedisConstants {
 
     /***
      * 订单模块缓存
-     * 书写规范  后面都要有:
+     * 书写规范
      */
-
+    public static final String COLON = ":";
     /***
      * 订单对库存加锁的时间
      */
@@ -31,8 +31,8 @@ public class RedisConstants {
     /***
      * 防止订单重复提交
      */
-    public static final String MODULES_ORDER_ID = "modules:order:id:";
+    public static final String MODULES_ORDER_ID = "modules_order_id";
 
 
-    public static final String MODULES_ORDER_PRODUCT_STOCK = "modules:order:product:id:";
+    public static final String MODULES_ORDER_PRODUCT_STOCK = "modules_order_product_id";
 }

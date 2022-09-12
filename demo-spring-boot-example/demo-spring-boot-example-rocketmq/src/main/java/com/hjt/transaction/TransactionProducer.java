@@ -26,7 +26,7 @@ public class TransactionProducer {
 
     public void produce() {
         MessageTransaction<String> message = new MessageTransaction<>();
-        //在正在的业务中 Aid和Bid应该是前端已经知道是啥，传给后端,比如A的userId和B的UserId
+        //在真正的业务中 Aid和Bid应该是前端已经知道是啥，传给后端,比如A的userId和B的UserId
         message.setAId(UUID.randomUUID().toString());
         message.setBId(UUID.randomUUID().toString());
         message.setContent("B即将要+100元,A要减100元");

@@ -1,0 +1,7 @@
+server:
+  port: 5500
+spring:
+  redis:
+    redisson:
+      addressUrl: 116.205.224.23:6379
+      password: 970628hjt.

@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class RedissonUtil {
 
-//    @Autowired(required = false)
     @Autowired
     private RedissonClient redissonClient;
 
