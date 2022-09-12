@@ -1,5 +1,7 @@
 package com.hjt.config;
 
+import com.hjt.constant.RocketMqConstant;
+import lombok.Data;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.apache.rocketmq.spring.support.RocketMQMessageConverter;
@@ -14,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @RefreshScope
 @Configuration
+@Data
 public class RocketMqAdapter {
 
     @Autowired
@@ -22,7 +25,7 @@ public class RocketMqAdapter {
     @Value("${rocketmq.name-server:}")
     private String nameServer;
 
-        public RocketMQTemplate getTemplateByTopicName(String topic){
+    public RocketMQTemplate getTemplateByTopicName(String topic) {
         RocketMQTemplate mqTemplate = new RocketMQTemplate();
         DefaultMQProducer producer = new DefaultMQProducer(topic);
         producer.setNamesrvAddr(nameServer);

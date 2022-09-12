@@ -1,4 +1,4 @@
-package com.hjt.config;
+package com.hjt.constant;
 
 /**
  * nameserver用;分割
@@ -44,6 +44,25 @@ public class RocketMqConstant {
      * 商品搜索topic
      */
     public static final String CANAL_TOPIC = "canal-topic";
+
+
+
+
+
+
+    /***
+     * 延时订单生产组
+     */
+    public static final String RQ_PRODUCER_DELAYED_ORDER = "mq_producer_delayed_order";
+    /***
+     * 延时订单topic
+     */
+    public static final String RQ_TOPIC_DELAYED_ORDER = "mq_topic_delayed_order";
+
+    /***
+     * 延时订单消费组
+     */
+    public static final String RQ_CONSUMER_DELAYED_ORDER = "mq_consumer_delayed_order";
 
 
 
