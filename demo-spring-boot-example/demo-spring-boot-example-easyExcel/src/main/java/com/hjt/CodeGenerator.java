@@ -39,7 +39,7 @@ public class CodeGenerator {
     private String serviceImplTemplate = templatePath + "serviceImpl.java";
     private String mapperTemplate = templatePath + "mapper.java";
 
-    private static String url = "jdbc:mysql://1.15.180.135:3306/hjt-data?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
+    private static String url = "jdbc:mysql://116.205.224.:3306/hjt-data?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
     private static String driverName = "com.mysql.cj.jdbc.Driver";
     private static String username = "root";
     private static String password = "970628hjt.";

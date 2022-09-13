@@ -53,6 +53,7 @@ public class Runner implements CommandLineRunner {
         //延迟消息
 //        offsetProducer.send();
 //        offsetProducer.sendByHjt();
+        offsetProducer.newSend();
 
         //根据tag消费消息
 //        tagProducer.sendTagsMessage();

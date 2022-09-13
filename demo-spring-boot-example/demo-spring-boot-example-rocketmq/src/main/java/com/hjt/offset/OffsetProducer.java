@@ -1,5 +1,8 @@
 package com.hjt.offset;
 
+import com.hjt.message.Demo;
+import com.hjt.message.MessageTransaction;
+import com.hjt.message.RqMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;
@@ -9,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
+import java.util.*;
 
 /**
  * 延时消息队列
@@ -31,6 +35,27 @@ public class OffsetProducer {
         }
     }
 
+    public void newSend() {
+        RqMessage<List<Demo>> stringMessage = new RqMessage<>();
+        stringMessage.setId(22222L);
+
+        ArrayList<Demo> objects = new ArrayList<>();
+        Demo demo = new Demo();
+        demo.setId(123);
+        demo.setName("商品名称");
+        demo.setPrice(20);
+
+        Demo demo1 = new Demo();
+        demo1.setId(456);
+        demo1.setName("商品名称456");
+        demo1.setPrice(654);
+
+        objects.add(demo);
+        objects.add(demo1);
+        stringMessage.setData(objects);
+        rocketMQTemplate.syncSend("topic-offset-by-hjt",stringMessage,3000L,3).getSendStatus();
+    }
+
     /***
      * hjt写的延时消费demo
      */
@@ -38,12 +63,12 @@ public class OffsetProducer {
         Message message = new Message();
         //生产者
         DefaultMQProducer producer = new DefaultMQProducer("topic-offset-by-hjt-product");
-        producer.setNamesrvAddr("192.168.1.219:9876");
+        producer.setNamesrvAddr("116.205.224.23:9876");
         producer.start();
         for(int i = 0;i<5;i++){
             message.setTopic("topic-offset-by-hjt");
             message.setBody(("我是延迟消费啊啊" + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
-            message.setDelayTimeLevel(4);
+            message.setDelayTimeLevel(3);
             producer.send(message);
         }
         //关闭生产者
