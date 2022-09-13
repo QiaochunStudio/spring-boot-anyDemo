@@ -63,7 +63,7 @@ public class OffsetProducer {
         Message message = new Message();
         //生产者
         DefaultMQProducer producer = new DefaultMQProducer("topic-offset-by-hjt-product");
-        producer.setNamesrvAddr("116.205.224.23:9876");
+        producer.setNamesrvAddr("1.15.180.135:9876");
         producer.start();
         for(int i = 0;i<5;i++){
             message.setTopic("topic-offset-by-hjt");
