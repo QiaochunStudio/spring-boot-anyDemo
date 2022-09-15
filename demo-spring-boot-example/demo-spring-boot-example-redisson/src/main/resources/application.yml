@@ -3,5 +3,5 @@ server:
 spring:
   redis:
     redisson:
-      addressUrl: 1.15.180.135:6379
+      addressUrl: 116.205.224.23:6379
       password: 970628hjt.

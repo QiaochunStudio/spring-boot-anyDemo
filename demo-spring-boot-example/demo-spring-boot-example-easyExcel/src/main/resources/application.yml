@@ -11,7 +11,7 @@ springfox:
 
 spring:
   datasource:
-    url: jdbc:mysql://1.15.180.135:3306/hjt-data?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    url: jdbc:mysql://116.205.224.23:3306/hjt-data?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
     username: root
     password: 970628hjt.
     driver-class-name: com.mysql.cj.jdbc.Driver

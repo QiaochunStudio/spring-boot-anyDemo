@@ -18,6 +18,7 @@
         <module>demo-spring-boot-example-easyExcel</module>
         <module>demo-spring-boot-example-rocketmq</module>
         <module>demo-spring-boot-example-redisson</module>
+        <module>demo-spring-boot-example-pay</module>
     </modules>
 
     <dependencies>

@@ -1,7 +1,8 @@
 package com.hjt.offset;
 
+import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONUtil;
 import com.hjt.message.Demo;
-import com.hjt.message.MessageTransaction;
 import com.hjt.message.RqMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
@@ -12,7 +13,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 延时消息队列
@@ -56,6 +58,38 @@ public class OffsetProducer {
         rocketMQTemplate.syncSend("topic-offset-by-hjt",stringMessage,3000L,3).getSendStatus();
     }
 
+    public void newSend1() {
+        ArrayList<Demo> objects = new ArrayList<>();
+        Demo demo = new Demo();
+        demo.setId(123);
+        demo.setName("商品名称");
+        demo.setPrice(20);
+
+        Demo demo1 = new Demo();
+        demo1.setId(456);
+        demo1.setName("商品名称456");
+        demo1.setPrice(654);
+
+        objects.add(demo);
+        objects.add(demo1);
+
+        //数组转json
+        JSONArray objects1 = JSONUtil.parseArray(objects);
+        String string = objects1.toString();
+
+        Message message = new Message();
+        message.setTopic("topic-offset-by-hjt");
+        message.setBody(string.getBytes());
+
+//        rocketMQTemplate.syncSend("topic-offset-by-hjt",message,3000L,3).getSendStatus();
+
+
+    }
+
+
+
+
+
     /***
      * hjt写的延时消费demo
      */
@@ -63,7 +97,7 @@ public class OffsetProducer {
         Message message = new Message();
         //生产者
         DefaultMQProducer producer = new DefaultMQProducer("topic-offset-by-hjt-product");
-        producer.setNamesrvAddr("1.15.180.135:9876");
+        producer.setNamesrvAddr("116.205.224.23:9876");
         producer.start();
         for(int i = 0;i<5;i++){
             message.setTopic("topic-offset-by-hjt");
@@ -74,6 +108,8 @@ public class OffsetProducer {
         //关闭生产者
         producer.shutdown();
     }
+
+
 
 
     public static String result(byte[] decrypt) {

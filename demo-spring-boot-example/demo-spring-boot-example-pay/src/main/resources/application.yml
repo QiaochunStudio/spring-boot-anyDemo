@@ -1,0 +1,23 @@
+#=====================================server\u76F8\u5173\u914D\u7F6E=====================================
+server:
+  port: 8080
+#=====================================\u6570\u636E\u5E93\u76F8\u5173\u914D\u7F6E=====================================
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://116.205.224.23:3306/hjt-data?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 970628hjt.
+    # \u4F7F\u7528Alibaba\u7684druid\u6570\u636E\u6E90\uFF0C\u9ED8\u8BA4\u4F7F\u7528\u81EA\u5E26\u7684
+    type: com.alibaba.druid.pool.DruidDataSource
+#=====================================mybatis\u76F8\u5173\u914D\u7F6E=====================================
+# \u5F00\u542F\u63A7\u5236\u53F0\u6253\u5370sql\u65E5\u5FD7
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # mybatis \u4E0B\u5212\u7EBF\u8F6C\u9A7C\u5CF0\u914D\u7F6E
+    map-underscore-to-camel-case: true
+  # \u914D\u7F6Emapper\u6587\u4EF6\u626B\u63CF
+  mapper-locations: com.haust.alipaydemoserver.mapper/*.xml
+  # \u914D\u7F6E\u5B9E\u4F53\u7C7B\u626B\u63CF
+  type-aliases-package: com.haust.alipaydemoserver.pojo
