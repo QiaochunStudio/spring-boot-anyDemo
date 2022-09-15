@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://116.205.224.23:3306/hjt-data?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://1.15.180.135:3306/hjt-data?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     username: root
     password: 970628hjt.
     # \u4F7F\u7528Alibaba\u7684druid\u6570\u636E\u6E90\uFF0C\u9ED8\u8BA4\u4F7F\u7528\u81EA\u5E26\u7684
