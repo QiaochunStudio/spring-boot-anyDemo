@@ -7,6 +7,8 @@ import com.hjt.service.AliPayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @Auther: csp1999
  * @Date: 2020/11/13/21:56
@@ -21,5 +23,15 @@ public class AliPayServiceImpl implements AliPayService {
     @Override
     public String aliPay(Order order) throws AlipayApiException {
         return alipay.pay(order);
+    }
+
+    @Override
+    public String isPayOver(String outTradeNo) throws AlipayApiException {
+        return alipay.isPayOver(outTradeNo);
+    }
+
+    @Override
+    public String receivePayInfo(String trade_no, String out_trade_no) throws AlipayApiException {
+        return alipay.receivePayInfo(trade_no,out_trade_no);
     }
 }
