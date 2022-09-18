@@ -30,11 +30,18 @@ public class AliPayConfig {
      */
     private String publicKey;
 
+
+
     /**
      * 服务器异步通知页面路径,需http://格式的完整路径
      * 踩坑:不能加?type=abc这类自定义参数
      */
     private String notifyUrl;
+
+    /***
+     * 参数编码格式  json
+     */
+    private String format;
 
     /**
      * 页面跳转同步通知页面路径,需http://格式的完整路径
