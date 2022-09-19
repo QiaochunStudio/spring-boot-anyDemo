@@ -417,11 +417,11 @@
             <name>hjt-maven-release</name>
             <url>http://116.205.224.23:8082/repository/hjt-maven-release/</url>
         </repository>
-                <snapshotRepository>
-                    <id>yusui-snapshots</id>
-                    <name>Release Repository</name>
-                    <url>http://192.168.1.80:8800/repository/yusui-snapshots/</url>
-                </snapshotRepository>
+<!--                <snapshotRepository>-->
+<!--                    <id>yusui-snapshots</id>-->
+<!--                    <name>Release Repository</name>-->
+<!--                    <url>http://192.168.1.80:8800/repository/yusui-snapshots/</url>-->
+<!--                </snapshotRepository>-->
         <!--个人私服仓库-->
         <!--        <repository>-->
         <!--            <id>nexus</id>-->

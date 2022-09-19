@@ -72,7 +72,6 @@ public class Alipay {
 
         // 3、请求支付宝进行付款，并获取支付结果
 
-        AlipayTradePagePayResponse response = alipayClient.pageExecute(alipayRequest);
         String result = alipayClient.pageExecute(alipayRequest).getBody();
         // 返回付款信息
         return result;

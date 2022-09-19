@@ -31,6 +31,12 @@ public class RemoteOrderFallbackFactory implements FallbackFactory<RemoteOrderSe
                 log.error("商品Id错误:{}", id);
                 return null;
             }
+
+            @Override
+            public R<Order> updateOrderById(Long orderId) {
+                log.error("订单Id错误:{}", orderId);
+                return null;
+            }
         };
     }
 }
