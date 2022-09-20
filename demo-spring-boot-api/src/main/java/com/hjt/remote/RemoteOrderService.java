@@ -2,14 +2,14 @@ package com.hjt.remote;
 
 import com.hjt.constant.ServiceNameConstants;
 import com.hjt.domain.Order;
+import com.hjt.domain.OrderProductInfo;
 import com.hjt.domain.Product;
 import com.hjt.domain.R;
 import com.hjt.factory.RemoteOrderFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import java.util.*;
+import java.util.List;
 
 /**
  * @author :hjt
@@ -43,6 +43,34 @@ public interface RemoteOrderService {
     @PostMapping("/myOrder/api/v1/order/updateOrderById")
     public R<Order> updateOrderById(@RequestParam(value = "orderId") Long orderId);
 
+
+
+    /***
+     * 支付完成根据订单id修改订单状态
+     * @param orderId
+     * @return
+     */
+    @PostMapping("/myOrder/api/v1/order-product-info/selectProductByOrderId")
+    public R<List<OrderProductInfo>> selectProductByOrderId(@RequestParam(value = "orderId") Long orderId);
+
+
+    /***
+     * 修改商品信息
+     * @param product
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.PUT)
+    public R<Product> updateProduct(@RequestBody Product product);
+
+
+    /***
+     * 根据id修改商品库存
+     * @param id
+     * @param stock
+     * @return
+     */
+    @PostMapping("/myOrder/api/v1/product/updateByOrderId")
+    public R<Product> updateByOrderId(@RequestParam(value = "id", required = true) Long id, @RequestParam(value = "stock",required = true) Long stock);
 
 
 

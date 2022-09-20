@@ -31,11 +31,11 @@ public class JsonStrArray {
 //        System.out.println(list);
 
 
-        String jsonArr = "[{\"id\":111,\"name\":\"test1\"},{\"id\":112,\"name\":\"test2\"}]";
-        JSONArray array = JSONUtil.parseArray(jsonArr);
-
-        User[] list = array.toArray(new User[0]);
-        System.out.println(list);
+//        String jsonArr = "[{\"id\":111,\"name\":\"test1\"},{\"id\":112,\"name\":\"test2\"}]";
+//        JSONArray array = JSONUtil.parseArray(jsonArr);
+//
+//        User[] list = array.toArray(new User[0]);
+//        System.out.println(list);
     }
 
 }

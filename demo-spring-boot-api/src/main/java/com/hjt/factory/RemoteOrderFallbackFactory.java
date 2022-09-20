@@ -1,12 +1,15 @@
 package com.hjt.factory;
 
 import com.hjt.domain.Order;
+import com.hjt.domain.OrderProductInfo;
 import com.hjt.domain.Product;
 import com.hjt.domain.R;
 import com.hjt.remote.RemoteOrderService;
 import feign.hystrix.FallbackFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 /**
  * @author :hjt
@@ -35,6 +38,23 @@ public class RemoteOrderFallbackFactory implements FallbackFactory<RemoteOrderSe
             @Override
             public R<Order> updateOrderById(Long orderId) {
                 log.error("订单Id错误:{}", orderId);
+                return null;
+            }
+
+            @Override
+            public R<List<OrderProductInfo>> selectProductByOrderId(Long orderId) {
+                log.error("订单Id错误:{}", orderId);
+                return null;
+            }
+
+            @Override
+            public R<Product> updateProduct(Product product) {
+                log.error("订单Id错误:{}", product);
+                return null;
+            }
+
+            @Override
+            public R<Product> updateByOrderId(Long id, Long stock) {
                 return null;
             }
         };

@@ -12,7 +12,7 @@
 		}
 		if (window.WebSocket) {
 			// socket = new WebSocket("ws://192.168.1.81:7070/ws");
-			socket = new WebSocket("ws://192.168.1.81:80/test");
+			socket = new WebSocket("ws://192.168.1.102:80/test");
 			socket.onmessage = function(event) {
 				var ta = document.getElementById('responseText');
 				ta.value = ta.value + '\n' + event.data
