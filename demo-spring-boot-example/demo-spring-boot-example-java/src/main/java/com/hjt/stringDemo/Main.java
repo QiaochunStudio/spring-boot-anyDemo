@@ -40,5 +40,8 @@ public class Main {
         for(int i = 0;i<split.length;i++){
             System.out.println("222:"+split[i]);
         }
+
+
+
     }
 }

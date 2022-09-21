@@ -50,7 +50,7 @@ public interface RemoteOrderService {
      * @param orderId
      * @return
      */
-    @PostMapping("/myOrder/api/v1/order-product-info/selectProductByOrderId")
+    @GetMapping("/myOrder/api/v1/order-product-info/selectProductByOrderId")
     public R<List<OrderProductInfo>> selectProductByOrderId(@RequestParam(value = "orderId") Long orderId);
 
 
