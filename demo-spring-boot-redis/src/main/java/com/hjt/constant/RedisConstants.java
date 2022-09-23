@@ -21,7 +21,7 @@ public class RedisConstants {
     /***
      * 订单对库存加锁的时间
      */
-    public static final long MODULES_ORDER_PRODUCT_STOCK_TIME = 3L;
+    public static final long MODULES_ORDER_PRODUCT_STOCK_TIME = 10L;
 
     /***
      * 防止重复提交设置的key过期时间为 1800s=30分钟
@@ -34,5 +34,22 @@ public class RedisConstants {
     public static final String MODULES_ORDER_ID = "modules_order_id";
 
 
+    /***
+     * 订单库存key
+     */
     public static final String MODULES_ORDER_PRODUCT_STOCK = "modules_order_product_id";
+
+
+    /***
+     * 订单超时后回加库存的key
+     */
+    public static final String MODULES_ORDER_RETURN_PRODUCT_STOCK = "modules_order_return_product_id";
+
+
+    /***
+     * 订单对回退的库存加锁的时间  5s
+     */
+    public static final long MODULES_ORDER_RETURN_PRODUCT_STOCK_TIME = 10L;
+
+
 }
