@@ -65,6 +65,7 @@
         <easyexcel.version>3.1.1</easyexcel.version>
         <!--xxl-job版本-->
         <xxl-job-core.version>2.3.1</xxl-job-core.version>
+        <nacos-client.version>2.0.4</nacos-client.version>
     </properties>
 
     <!--引入公共的模块-->

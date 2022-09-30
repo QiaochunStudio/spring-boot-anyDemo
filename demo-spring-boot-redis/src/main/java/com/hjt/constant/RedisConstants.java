@@ -52,4 +52,15 @@ public class RedisConstants {
     public static final long MODULES_ORDER_RETURN_PRODUCT_STOCK_TIME = 10L;
 
 
+    /**
+     * 秒杀 乐观锁机制版本号 商品对应的key
+     * */
+    public static final String MODULES_ORDER_GENERATE_VERSION_KEY = "product:version:";
+
+
+    /**
+     * 秒杀 商品对应的库存key
+     * */
+    public static final String MODULES_ORDER_GENERATE_STOCK_KEY = "product:stock:";
+
 }

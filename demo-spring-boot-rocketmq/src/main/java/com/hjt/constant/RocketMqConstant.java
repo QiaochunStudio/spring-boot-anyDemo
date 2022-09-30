@@ -65,5 +65,36 @@ public class RocketMqConstant {
     public static final String RQ_CONSUMER_DELAYED_ORDER = "mq_consumer_delayed_order";
 
 
+    /***
+     * 流量削峰 秒杀场景生成订单 topic
+     */
+    public static final String RQ_PRODUCER_GENERATE_ORDER_TOPIC = "mq_producer_generate_order_topic";
+
+    /***
+     * 流量削峰 秒杀场景生成订单 生产组 中的key 全局有序
+     */
+    public static final String RQ_PRODUCER_GENERATE_ORDER_KEY = "mq_producer_generate_order_hashKey";
+
+
+    /***
+     * 流量削峰 秒杀场景生成订单 消费组
+     */
+    public static final String RQ_CONSUMER_GENERATE_ORDER_CONSUMER_GROUP = "mq_producer_generate_order_consumer_group";
+
+
+
+    /***
+     * 异步修改商品库存 topic
+     */
+    public static final String RQ_PRODUCER_UPDATE_STOCK_TOPIC = "mq_producer_update_stock_topic";
+
+    /***
+     * 异步修改商品库存 消费组
+     */
+    public static final String RQ_PRODUCER_UPDATE_STOCK_TOPIC_GROUP = "mq_producer_update_stock_topic_group";
+
+
+
+
 
 }
