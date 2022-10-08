@@ -24,7 +24,7 @@ public class OrderProducer {
 
 
     public void sendSyncOrderly() {
-        String message = "orderly message: ";
+        String message = "orderly message:";
         for (int i = 0; i < NUM; i++) {
             // 模拟有序消费
             rocketMQTemplate.syncSendOrderly("topic-orderly", message + i, "select_queue_key2");

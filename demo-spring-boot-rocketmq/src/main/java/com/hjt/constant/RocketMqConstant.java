@@ -95,6 +95,41 @@ public class RocketMqConstant {
 
 
 
+    /***
+     * 超时没付款商品回退库存 topic
+     */
+    public static final String RQ_PRODUCER_RETURN_STOCK_TOPIC = "mq_producer_return_stock_topic";
+
+
+    /***
+     * 超时没付款商品回退库存 消费组
+     */
+    public static final String RQ_PRODUCER_RETURN_STOCK_TOPIC_GROUP = "mq_producer_return_stock_topic_group";
+
+    /***
+     * 超时没付款商品回退库存 消费组
+     */
+    public static final String RQ_PRODUCER_RETURN_STOCK_KEY = "mq_producer_return_stock_key";
+
+
+
+    /***
+     * 支付完成修改订单状态
+     */
+    public static final String RQ_PRODUCER_PAY_UPDATE_ORDER_STATUS_TOPIC = "mq_producer_pay_update_order_status_topic";
+
+    /***
+     * 超时没付款商品回退库存 消费组
+     */
+    public static final String RQ_PRODUCER_PAY_UPDATE_ORDER_STATUS_TOPIC_GROUP = "mq_producer_pay_update_order_status_topic_group";
+
+
+
+
+
+
+
+
 
 
 }

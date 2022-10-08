@@ -57,6 +57,16 @@ public class RemoteOrderFallbackFactory implements FallbackFactory<RemoteOrderSe
             public R<Product> updateByOrderId(Long id, Long stock) {
                 return null;
             }
+
+            @Override
+            public R<Boolean> isConsumerMQ(String msgId) {
+                return null;
+            }
+
+            @Override
+            public R addConsumerMQ(String msgId) {
+                return null;
+            }
         };
     }
 }

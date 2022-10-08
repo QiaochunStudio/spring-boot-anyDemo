@@ -73,5 +73,21 @@ public interface RemoteOrderService {
     public R<Product> updateByOrderId(@RequestParam(value = "id", required = true) Long id, @RequestParam(value = "stock",required = true) Long stock);
 
 
+    /***
+     * mq是否被消费
+     * @param msgId
+     * @return
+     */
+    @PostMapping("/myOrder/api/v1/PreventMqConsumerController/isConsumerMQ")
+    public R<Boolean> isConsumerMQ(@RequestParam(value = "msgId", required = true) String msgId);
+
+
+    /***
+     * 记录mq消费
+     * @param msgId
+     * @return
+     */
+    @PostMapping("/myOrder/api/v1/PreventMqConsumerController/addConsumerMQ")
+    public R addConsumerMQ(@RequestParam(value = "msgId", required = true) String msgId);
 
 }
