@@ -39,7 +39,7 @@ public class SecretKeyConfig{
     /**
      * 是否开启时间戳检查
      */
-    private boolean timestampCheck = true;
+    private boolean timestampCheck = false;
 
     public String getPrivateKey() {
         return privateKey;

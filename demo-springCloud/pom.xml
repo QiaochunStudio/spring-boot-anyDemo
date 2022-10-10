@@ -20,10 +20,10 @@
     <!--模块-->
     <modules>
         <module>demo-springCloud-hystrix</module>
-        <module>demo-springCloud-client</module>
         <module>demo-springCloud-sentinel-service</module>
         <module>demo-springCloud-oauth2</module>
         <module>demo-springCloud-seata</module>
+        <module>demo-springCloud-all-client</module>
     </modules>
 
 

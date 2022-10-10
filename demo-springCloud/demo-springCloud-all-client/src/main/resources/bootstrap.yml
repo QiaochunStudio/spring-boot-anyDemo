@@ -1,15 +1,15 @@
 # Tomcat
 server:
-  port: 6601
+  port: 6602
 
 # Spring
 spring:
   application:
     # 应用名称
-    name: sentinel-service
+    name: demo-springCloud-client
   profiles:
     # 环境配置
-      active: dev
+    active: dev
   cloud:
     nacos:
       discovery:
@@ -29,31 +29,3 @@ spring:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
         group: DEFAULT_GROUP
         namespace: demo-hjt
-  #Sentinel配置
-    sentinel:
-      transport:
-        dashboard: 116.205.224.23:8858 #配置sentinel dashboard地址
-#        clientIp: 192.168.1.102
-        port: 8719
-      datasource:
-        ds1:
-          nacos:
-            server-addr: 116.205.224.23:8848
-            dataId: ${spring.application.name}-sentinel
-            groupId: DEFAULT_GROUP
-            data-type: json
-            rule-type: flow
-
-
-
-
-feign:
-  sentinel:
-    enabled: true #打开sentinel对feign的支持
-service-url:
-  user-service: http://demo-springCloud-client
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
