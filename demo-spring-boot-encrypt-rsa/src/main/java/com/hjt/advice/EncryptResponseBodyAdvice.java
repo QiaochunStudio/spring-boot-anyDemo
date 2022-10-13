@@ -1,10 +1,10 @@
 package com.hjt.advice;
 
 import com.hjt.annotation.Encrypt;
-import com.hjt.config.SecretKeyConfig;
+import com.hjt.config.RSACoderConfig;
 import com.hjt.util.Base64Util;
 import com.hjt.util.JsonUtils;
-import com.hjt.util.RSAUtil;
+import com.hjt.util.RSACoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
 import java.util.Objects;
 
 /**
- * Author:hjt
+ * Author:Bobby
  * DateTime:2019/4/9
  * 出参进行加密操作
  **/
@@ -32,8 +32,11 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     private boolean encrypt;
 
+
+
+
     @Autowired
-    private SecretKeyConfig secretKeyConfig;
+    private RSACoderConfig rsaCoderConfig;
 
     private static ThreadLocal<Boolean> encryptLocal = new ThreadLocal<>();
 
@@ -43,7 +46,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
         if (Objects.isNull(method)) {
             return encrypt;
         }
-        encrypt = method.isAnnotationPresent(Encrypt.class) && secretKeyConfig.isOpen();
+        encrypt = method.isAnnotationPresent(Encrypt.class) && rsaCoderConfig.isOpen();
         return encrypt;
     }
 
@@ -58,16 +61,18 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
             return body;
         }
         if (encrypt) {
-            String publicKey = secretKeyConfig.getPublicKey();
+            String publicKey = rsaCoderConfig.getPublicKey();
             try {
                 String content = JsonUtils.writeValueAsString(body);
                 if (!StringUtils.hasText(publicKey)) {
                     throw new NullPointerException("Please configure rsa.encrypt.privatekeyc parameter!");
                 }
+                /*RSA加密*/
                 byte[] data = content.getBytes();
-                byte[] encodedData = RSAUtil.encrypt(data, publicKey);
-                String result = Base64Util.encode(encodedData);
-                if(secretKeyConfig.isShowLog()) {
+                /*私钥加密*/
+                byte[] encryptByPrivateKey = RSACoder.encryptByPrivateKey(data, rsaCoderConfig.getPrivateKey());
+                String result = Base64Util.encode(encryptByPrivateKey);
+                if(rsaCoderConfig.isShowLog()) {
                     log.info("Pre-encrypted data：{}，After encryption：{}", content, result);
                 }
                 return result;

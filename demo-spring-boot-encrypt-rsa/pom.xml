@@ -51,6 +51,16 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
+        <!--redis模块-->
+        <dependency>
+            <groupId>com.hjt</groupId>
+            <artifactId>demo-spring-boot-redis</artifactId>
+        </dependency>
+
+
+
+
     </dependencies>
 
 

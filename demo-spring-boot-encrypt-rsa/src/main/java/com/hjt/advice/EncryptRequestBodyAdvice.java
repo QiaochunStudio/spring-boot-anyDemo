@@ -17,7 +17,7 @@ import java.lang.reflect.Type;
 import java.util.Objects;
 
 /**
- * Author:hjt
+ * Author:Bobby
  * DateTime:2019/4/9
  * 拦截入参 解密
  **/
@@ -27,10 +27,14 @@ public class EncryptRequestBodyAdvice  implements RequestBodyAdvice {
     private Logger log = LoggerFactory.getLogger(this.getClass());
 
     private boolean encrypt;
+
     private Decrypt decryptAnnotation;
 
     @Autowired
-    private SecretKeyConfig secretKeyConfig;
+    private SecretKeyConfig secretKeyConfig ;
+
+    @Autowired
+    private DecryptHttpInputMessage decryptHttpInputMessage;
 
     @Override
     public boolean supports(MethodParameter methodParameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
@@ -59,7 +63,8 @@ public class EncryptRequestBodyAdvice  implements RequestBodyAdvice {
                                            Class<? extends HttpMessageConverter<?>> converterType){
         if (encrypt) {
             try {
-                return new DecryptHttpInputMessage(inputMessage, secretKeyConfig, decryptAnnotation);
+//                return new DecryptHttpInputMessage(inputMessage, secretKeyConfig, decryptAnnotation);
+                return decryptHttpInputMessage.initDecryptHttpInputMessage(inputMessage, secretKeyConfig,decryptAnnotation);
             } catch (EncryptRequestException e) {
                 throw e;
             } catch (Exception e) {
@@ -74,4 +79,10 @@ public class EncryptRequestBodyAdvice  implements RequestBodyAdvice {
                                 Class<? extends HttpMessageConverter<?>> converterType) {
         return body;
     }
+
+
+
+
+
+
 }

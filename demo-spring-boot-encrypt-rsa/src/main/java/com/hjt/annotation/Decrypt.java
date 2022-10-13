@@ -1,6 +1,7 @@
 package com.hjt.annotation;
 
 import com.hjt.exception.EncryptRequestException;
+import org.springframework.stereotype.Component;
 
 import java.lang.annotation.*;
 
@@ -11,6 +12,7 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
+@Component
 public @interface Decrypt{
 
     /**

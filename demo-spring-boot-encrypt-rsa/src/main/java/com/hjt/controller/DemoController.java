@@ -3,10 +3,14 @@ package com.hjt.controller;
 import com.hjt.annotation.Decrypt;
 import com.hjt.annotation.Encrypt;
 import com.hjt.domain.TestBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class DemoController {
+    private Logger log = LoggerFactory.getLogger(this.getClass());
+
     @Encrypt
     @GetMapping("/encryption")
     public TestBean encryption(@RequestParam("age")Integer age){
@@ -16,6 +20,7 @@ public class DemoController {
         testBean.setAge(age);
         long time = System.currentTimeMillis();
         testBean.setTimestamp(time);
+        log.info("加密的内容："+testBean);
         return testBean;
     }
 

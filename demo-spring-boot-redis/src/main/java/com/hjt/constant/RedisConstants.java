@@ -63,4 +63,10 @@ public class RedisConstants {
      * */
     public static final String MODULES_ORDER_GENERATE_STOCK_KEY = "product:stock:";
 
+
+    /**
+     * 接口加密后的参数
+     * */
+    public static final String RSA_PARAMS = "rsa:params:";
+
 }

@@ -1,16 +1,20 @@
 package com.hjt.advice;
 
 import com.hjt.annotation.Decrypt;
+import com.hjt.config.RSACoderConfig;
 import com.hjt.config.SecretKeyConfig;
 import com.hjt.exception.EncryptRequestException;
 import com.hjt.util.Base64Util;
 import com.hjt.util.JsonUtils;
-import com.hjt.util.RSAUtil;
+import com.hjt.util.RSACoder;
+import com.hjt.util.RedisUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpInputMessage;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -19,22 +23,32 @@ import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
 /**
- * Author:hjt
+ * Author:Bobby
  * DateTime:2019/4/9
  **/
+@Component
 public class DecryptHttpInputMessage implements HttpInputMessage {
 
     private Logger log = LoggerFactory.getLogger(this.getClass());
     private HttpHeaders headers;
     private InputStream body;
 
+    @Autowired
+    private RedisUtil redisUtil;
 
-    public DecryptHttpInputMessage(HttpInputMessage inputMessage, SecretKeyConfig secretKeyConfig, Decrypt decrypt) throws Exception {
 
-        String privateKey =  secretKeyConfig.getPrivateKey();
+    /***
+     * 初始化
+     * @param inputMessage
+     * @throws Exception
+     */
+    public DecryptHttpInputMessage initDecryptHttpInputMessage(HttpInputMessage inputMessage, SecretKeyConfig secretKeyConfig, Decrypt decrypt) throws Exception {
+        DecryptHttpInputMessage decryptHttpInputMessage = new DecryptHttpInputMessage();
+        String privateKey = secretKeyConfig.getPrivateKey();
         String charset = secretKeyConfig.getCharset();
         boolean showLog = secretKeyConfig.isShowLog();
         boolean timestampCheck = secretKeyConfig.isTimestampCheck();
+
 
         if (StringUtils.isEmpty(privateKey)) {
             throw new IllegalArgumentException("privateKey is null");
@@ -43,8 +57,15 @@ public class DecryptHttpInputMessage implements HttpInputMessage {
         this.headers = inputMessage.getHeaders();
         String content = new BufferedReader(new InputStreamReader(inputMessage.getBody()))
                 .lines().collect(Collectors.joining(System.lineSeparator()));
+        log.info("----要解密的内容："+content);
         String decryptBody;
-        // 未加密内容
+
+        boolean hasRSAContent = redisUtil.hasKey("rsa:params:" + content);
+        if (hasRSAContent) {
+            throw new EncryptRequestException("参数加密内容已失效");
+        }
+
+         //未加密内容
         if (content.startsWith("{")) {
             // 必须加密
             if (decrypt.required()) {
@@ -60,17 +81,19 @@ public class DecryptHttpInputMessage implements HttpInputMessage {
             if (!StringUtils.isEmpty(content)) {
                 String[] contents = content.split("\\|");
                 for (String value : contents) {
-                    value = new String(RSAUtil.decrypt(Base64Util.decode(value), privateKey), charset);
+                    /*RSA解密*/
+                    value = new String(RSACoder.decryptByPrivateKey(Base64Util.decode(value),secretKeyConfig.getPrivateKey()));
+//                    value = new String(RSAUtil.decrypt(Base64Util.decode(value), privateKey), charset);
                     json.append(value);
                 }
             }
             decryptBody = json.toString();
-            if(showLog) {
+            if (showLog) {
                 log.info("Encrypted data received：{},After decryption：{}", content, decryptBody);
             }
         }
 
-        // 开启时间戳检查
+//        // 开启时间戳检查
         if (timestampCheck) {
             // 容忍最小请求时间
             long toleranceTime = System.currentTimeMillis() - decrypt.timeout();
@@ -83,10 +106,23 @@ public class DecryptHttpInputMessage implements HttpInputMessage {
         }
 
         this.body = new ByteArrayInputStream(decryptBody.getBytes());
+        /*加密内容 30分钟后失效*/
+        redisUtil.set("rsa:params:"+ content, 1, 6000);
+        decryptHttpInputMessage.setBody(body);
+        decryptHttpInputMessage.setHeaders(headers);
+        return decryptHttpInputMessage;
+    }
+
+    public void setHeaders(HttpHeaders headers) {
+        this.headers = headers;
+    }
+
+    public void setBody(InputStream body) {
+        this.body = body;
     }
 
     @Override
-    public InputStream getBody(){
+    public InputStream getBody() {
         return body;
     }
 
@@ -94,4 +130,6 @@ public class DecryptHttpInputMessage implements HttpInputMessage {
     public HttpHeaders getHeaders() {
         return headers;
     }
+
+
 }
