@@ -1,7 +1,7 @@
 package com.hjt.advice;
 
 import com.hjt.annotation.Decrypt;
-import com.hjt.config.SecretKeyConfig;
+import com.hjt.config.RSAUtilsConfig;
 import com.hjt.exception.EncryptRequestException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,11 +30,12 @@ public class EncryptRequestBodyAdvice  implements RequestBodyAdvice {
 
     private Decrypt decryptAnnotation;
 
-    @Autowired
-    private SecretKeyConfig secretKeyConfig ;
 
     @Autowired
     private DecryptHttpInputMessage decryptHttpInputMessage;
+
+    @Autowired
+    private RSAUtilsConfig rsaUtilsConfig;
 
     @Override
     public boolean supports(MethodParameter methodParameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
@@ -43,7 +44,7 @@ public class EncryptRequestBodyAdvice  implements RequestBodyAdvice {
             encrypt = false;
             return false;
         }
-        if (method.isAnnotationPresent(Decrypt.class) && secretKeyConfig.isOpen()) {
+        if (method.isAnnotationPresent(Decrypt.class) && rsaUtilsConfig.isOpen()) {
             encrypt = true;
             decryptAnnotation = methodParameter.getMethodAnnotation(Decrypt.class);
             return true;
@@ -64,7 +65,7 @@ public class EncryptRequestBodyAdvice  implements RequestBodyAdvice {
         if (encrypt) {
             try {
 //                return new DecryptHttpInputMessage(inputMessage, secretKeyConfig, decryptAnnotation);
-                return decryptHttpInputMessage.initDecryptHttpInputMessage(inputMessage, secretKeyConfig,decryptAnnotation);
+                return decryptHttpInputMessage.initDecryptHttpInputMessage(inputMessage, rsaUtilsConfig,decryptAnnotation);
             } catch (EncryptRequestException e) {
                 throw e;
             } catch (Exception e) {

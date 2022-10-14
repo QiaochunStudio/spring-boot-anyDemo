@@ -69,4 +69,14 @@ public class RedisConstants {
      * */
     public static final String RSA_PARAMS = "rsa:params:";
 
+    /**
+     * 用户存放的publicKey
+     * */
+    public static final String USER_RSA_PUBLIC_KEY = "rsa:publicKey:";
+
+    /**
+     * 用户存放的privateKey
+     * */
+    public static final String USER_RSA_PRIVATE_KEY = "rsa:privateKey:";
+
 }

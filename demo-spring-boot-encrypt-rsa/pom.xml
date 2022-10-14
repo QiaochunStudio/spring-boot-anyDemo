@@ -58,7 +58,10 @@
             <artifactId>demo-spring-boot-redis</artifactId>
         </dependency>
 
-
+        <dependency>
+            <groupId>com.hjt</groupId>
+            <artifactId>demo-spring-boot-security</artifactId>
+        </dependency>
 
 
     </dependencies>

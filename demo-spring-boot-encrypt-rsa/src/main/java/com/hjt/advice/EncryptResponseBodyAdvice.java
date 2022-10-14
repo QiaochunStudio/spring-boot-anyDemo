@@ -1,10 +1,8 @@
 package com.hjt.advice;
 
 import com.hjt.annotation.Encrypt;
-import com.hjt.config.RSACoderConfig;
-import com.hjt.util.Base64Util;
-import com.hjt.util.JsonUtils;
-import com.hjt.util.RSACoder;
+import com.hjt.config.RSAUtilsConfig;
+import com.hjt.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +16,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -32,11 +31,15 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     private boolean encrypt;
 
+    @Autowired
+    private RedisUtil redisUtil;
 
+    @Autowired
+    private RSAUtils rsaUtils;
 
 
     @Autowired
-    private RSACoderConfig rsaCoderConfig;
+    private RSAUtilsConfig rsaUtilsConfig;
 
     private static ThreadLocal<Boolean> encryptLocal = new ThreadLocal<>();
 
@@ -46,7 +49,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
         if (Objects.isNull(method)) {
             return encrypt;
         }
-        encrypt = method.isAnnotationPresent(Encrypt.class) && rsaCoderConfig.isOpen();
+        encrypt = method.isAnnotationPresent(Encrypt.class) && rsaUtilsConfig.isOpen();
         return encrypt;
     }
 
@@ -61,18 +64,33 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
             return body;
         }
         if (encrypt) {
-            String publicKey = rsaCoderConfig.getPublicKey();
+            String publicKey = rsaUtilsConfig.getPublicKey();
             try {
                 String content = JsonUtils.writeValueAsString(body);
                 if (!StringUtils.hasText(publicKey)) {
                     throw new NullPointerException("Please configure rsa.encrypt.privatekeyc parameter!");
                 }
-                /*RSA加密*/
-                byte[] data = content.getBytes();
+                String privateKeyMap = "";
+                String publicKeyMap = "";
+                Long userId = SecurityUtils.getUserId();
+                /*判断用户是否存了RSA公私钥*/
+                if(redisUtil.hasKey("rsa:privateKey:" + userId)){
+                    privateKeyMap = (String)redisUtil.get("rsa:privateKey:" + userId);
+                }
+                /*初始化*/
+                else{
+                    /*初始化秘钥 并且根据用户获取私钥*/
+                    Map<String, Object> keyMap = rsaUtils.genKeyPair();
+                    privateKeyMap = rsaUtils.getPrivateKey(keyMap);
+                    publicKeyMap = rsaUtils.getPublicKey(keyMap);
+                    /*存放redis*/
+                    redisUtil.set("rsa:privateKey:" + userId,privateKeyMap);
+                    redisUtil.set("rsa:publicKey:" + userId,publicKeyMap);
+                }
                 /*私钥加密*/
-                byte[] encryptByPrivateKey = RSACoder.encryptByPrivateKey(data, rsaCoderConfig.getPrivateKey());
+                byte[] encryptByPrivateKey = RSAUtils.encryptByPrivateKey(content.getBytes(), privateKeyMap);
                 String result = Base64Util.encode(encryptByPrivateKey);
-                if(rsaCoderConfig.isShowLog()) {
+                if(rsaUtilsConfig.isShowLog()) {
                     log.info("Pre-encrypted data：{}，After encryption：{}", content, result);
                 }
                 return result;

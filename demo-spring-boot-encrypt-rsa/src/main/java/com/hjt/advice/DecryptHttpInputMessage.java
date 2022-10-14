@@ -1,13 +1,9 @@
 package com.hjt.advice;
 
 import com.hjt.annotation.Decrypt;
-import com.hjt.config.RSACoderConfig;
-import com.hjt.config.SecretKeyConfig;
+import com.hjt.config.RSAUtilsConfig;
 import com.hjt.exception.EncryptRequestException;
-import com.hjt.util.Base64Util;
-import com.hjt.util.JsonUtils;
-import com.hjt.util.RSACoder;
-import com.hjt.util.RedisUtil;
+import com.hjt.util.*;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,18 +32,23 @@ public class DecryptHttpInputMessage implements HttpInputMessage {
     @Autowired
     private RedisUtil redisUtil;
 
+    @Autowired
+    private RSAUtilsConfig rsaUtilsConfig;
+
+
+
 
     /***
      * 初始化
      * @param inputMessage
      * @throws Exception
      */
-    public DecryptHttpInputMessage initDecryptHttpInputMessage(HttpInputMessage inputMessage, SecretKeyConfig secretKeyConfig, Decrypt decrypt) throws Exception {
+    public DecryptHttpInputMessage initDecryptHttpInputMessage(HttpInputMessage inputMessage, RSAUtilsConfig rsaUtilsConfig, Decrypt decrypt) throws Exception {
         DecryptHttpInputMessage decryptHttpInputMessage = new DecryptHttpInputMessage();
-        String privateKey = secretKeyConfig.getPrivateKey();
-        String charset = secretKeyConfig.getCharset();
-        boolean showLog = secretKeyConfig.isShowLog();
-        boolean timestampCheck = secretKeyConfig.isTimestampCheck();
+        String privateKey = rsaUtilsConfig.getPrivateKey();
+        String charset = rsaUtilsConfig.getCharset();
+        boolean showLog = rsaUtilsConfig.isShowLog();
+        boolean timestampCheck = rsaUtilsConfig.isTimestampCheck();
 
 
         if (StringUtils.isEmpty(privateKey)) {
@@ -58,40 +59,48 @@ public class DecryptHttpInputMessage implements HttpInputMessage {
         String content = new BufferedReader(new InputStreamReader(inputMessage.getBody()))
                 .lines().collect(Collectors.joining(System.lineSeparator()));
         log.info("----要解密的内容："+content);
-        String decryptBody;
+        String decryptBody  = "";
 
         boolean hasRSAContent = redisUtil.hasKey("rsa:params:" + content);
         if (hasRSAContent) {
             throw new EncryptRequestException("参数加密内容已失效");
         }
-
-         //未加密内容
-        if (content.startsWith("{")) {
-            // 必须加密
-            if (decrypt.required()) {
-                log.error("not support unencrypted content:{}", content);
-                throw new EncryptRequestException("not support unencrypted content");
-            }
-            log.info("Unencrypted without decryption:{}", content);
-            decryptBody = content;
-        } else {
-            StringBuilder json = new StringBuilder();
-            content = content.replaceAll(" ", "+");
-
-            if (!StringUtils.isEmpty(content)) {
-                String[] contents = content.split("\\|");
-                for (String value : contents) {
-                    /*RSA解密*/
-                    value = new String(RSACoder.decryptByPrivateKey(Base64Util.decode(value),secretKeyConfig.getPrivateKey()));
-//                    value = new String(RSAUtil.decrypt(Base64Util.decode(value), privateKey), charset);
-                    json.append(value);
-                }
-            }
-            decryptBody = json.toString();
-            if (showLog) {
-                log.info("Encrypted data received：{},After decryption：{}", content, decryptBody);
-            }
-        }
+        /*根据用户获取私钥*/
+        Long userId = SecurityUtils.getUserId();
+        String publicKey = (String)redisUtil.get("rsa:publicKey:" + userId);
+        //base64解密
+        byte[] decode = Base64Util.decode(content);
+        /*公钥解密*/
+        byte[] decodeByPublicKey = RSAUtils.decryptByPublicKey(decode,publicKey);
+        decryptBody  = new String(decodeByPublicKey);
+        //RSA解密
+        //未加密内容
+//        if (content.startsWith("{")) {
+//            // 必须加密
+//            if (decrypt.required()) {
+//                log.error("not support unencrypted content:{}", content);
+//                throw new EncryptRequestException("not support unencrypted content");
+//            }
+//            log.info("Unencrypted without decryption:{}", content);
+//            decryptBody = content;
+//        } else {
+//            StringBuilder json = new StringBuilder();
+//            content = content.replaceAll(" ", "+");
+//
+//            if (!StringUtils.isEmpty(content)) {
+//                String[] contents = content.split("\\|");
+//                for (String value : contents) {
+//                    /*RSA解密*/
+//                    value = new String(RSACoder.decryptByPrivateKey(Base64Util.decode(value),secretKeyConfig.getPrivateKey()));
+////                    value = new String(RSAUtil.decrypt(Base64Util.decode(value), privateKey), charset);
+//                    json.append(value);
+//                }
+//            }
+//            decryptBody = json.toString();
+//            if (showLog) {
+//                log.info("Encrypted data received：{},After decryption：{}", content, decryptBody);
+//            }
+//        }
 
 //        // 开启时间戳检查
         if (timestampCheck) {

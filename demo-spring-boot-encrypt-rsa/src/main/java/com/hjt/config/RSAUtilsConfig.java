@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Configuration;
  * @author :hjt
  * @date : 2022/10/13
  */
-@ConfigurationProperties(prefix = "rsacode.encrypt")
+@ConfigurationProperties(prefix = "rsa.encrypt")
 @Configuration
-public class RSACoderConfig {
+public class RSAUtilsConfig {
     /**
      * key算法
      */
