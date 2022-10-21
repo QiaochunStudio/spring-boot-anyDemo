@@ -3,6 +3,7 @@ package com.hjt.stringDemo;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.Date;
 
 /**
  * @author :hjt
@@ -35,12 +36,12 @@ public class Main {
 //        System.out.println(Str.lastIndexOf( SubStr2 ));
 
 
-        String s = "6,7,";
-        String[] split = s.split(",");
-        for(int i = 0;i<split.length;i++){
-            System.out.println("222:"+split[i]);
-        }
-
+//        String s = "6,7,";
+//        String[] split = s.split(",");
+//        for(int i = 0;i<split.length;i++){
+//            System.out.println("222:"+split[i]);
+//        }
+        System.out.println(new Date().toString());
 
 
     }
