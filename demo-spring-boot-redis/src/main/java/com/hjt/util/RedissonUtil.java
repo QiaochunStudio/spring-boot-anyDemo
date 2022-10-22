@@ -73,6 +73,23 @@ public class RedissonUtil {
     }
 
     /**
+     * 尝试获取锁
+     * @param lockKey
+     * @param waitTime 等待时间
+     * @param leaseTime 自动释放锁时间
+     * @return
+     */
+    public  boolean tryLock(String lockKey, int waitTime, int leaseTime) {
+        RLock lock = redissonClient.getLock(lockKey);
+        try {
+            return lock.tryLock(waitTime, leaseTime, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            return false;
+        }
+    }
+
+
+    /**
      * 通过lockKey解锁
      * @param lockKey
      * @return void

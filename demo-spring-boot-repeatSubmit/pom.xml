@@ -9,43 +9,41 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-spring-boot-log</artifactId>
+    <artifactId>demo-spring-boot-repeatSubmit</artifactId>
     <name>${project.artifactId}</name>
     <version>${project.parent.version}</version>
     <packaging>jar</packaging>
     <description>
-        demo-spring-boot-log 日志模块
+        防止重复提交模块
     </description>
 
     <dependencies>
-
+        <!--引入redis模块-->
         <dependency>
             <groupId>com.hjt</groupId>
-            <artifactId>demo-spring-boot-api</artifactId>
+            <artifactId>demo-spring-boot-redis</artifactId>
         </dependency>
+
+        <!--core模块-->
         <dependency>
             <groupId>com.hjt</groupId>
             <artifactId>demo-spring-boot-core</artifactId>
         </dependency>
 
+
+        <!--aop-->
         <dependency>
-            <groupId>com.hjt</groupId>
-            <artifactId>demo-spring-boot-security</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+        <!--web-->
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
 
     </dependencies>
-
 
 </project>

@@ -41,6 +41,7 @@
         <module>demo-springCloud</module>
         <module>demo-spring-boot-rocketmq</module>
         <module>demo-spring-boot-encrypt-rsa</module>
+        <module>demo-spring-boot-repeatSubmit</module>
     </modules>
 
     <name>spring-boot-project-demo</name>
