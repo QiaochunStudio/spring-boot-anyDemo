@@ -270,6 +270,12 @@
                 <version>${demo-spring-boot.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-repeatSubmit</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+
             <!--hutool-->
             <dependency>
                 <groupId>cn.hutool</groupId>

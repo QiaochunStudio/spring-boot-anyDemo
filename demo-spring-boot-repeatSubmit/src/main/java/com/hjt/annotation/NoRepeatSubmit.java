@@ -1,4 +1,4 @@
-package com.hjt.aspect;
+package com.hjt.annotation;
 
 /**
  * @author :hjt
@@ -11,12 +11,18 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface NoRepeatSubmit {
+    public @interface NoRepeatSubmit {
 
     /**
      * 设置请求锁定时间
      * @return
      */
     int lockTime() default 5;
+
+    /***
+     * redisson方法等待时间
+     * @return
+     */
+    int waitTime() default 3;
 }
 
