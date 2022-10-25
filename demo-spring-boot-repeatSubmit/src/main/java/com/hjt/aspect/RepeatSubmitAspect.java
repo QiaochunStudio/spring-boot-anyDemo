@@ -1,14 +1,7 @@
 package com.hjt.aspect;
-
-/**
- * @author :hjt
- * @date : 2022/10/21
- */
-
 import com.hjt.annotation.NoRepeatSubmit;
 import com.hjt.myException.BaseException;
 import com.hjt.util.RedisUtil;
-import com.hjt.util.RedissonUtil;
 import com.hjt.util.ServletUtils;
 import com.hjt.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -19,11 +12,11 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
-
 /**
+ * @author :hjt
+ * @date : 2022/10/21
  * 重复提交aop
  */
 @Aspect
@@ -31,8 +24,6 @@ import java.util.UUID;
 @Slf4j
 public class RepeatSubmitAspect {
 
-    @Autowired
-    private RedissonUtil redissonUtil;
 
     @Autowired
     private RedisUtil redisUtil;
@@ -44,7 +35,6 @@ public class RepeatSubmitAspect {
     @Around("pointCut(noRepeatSubmit)")
     public Object around(ProceedingJoinPoint pjp, NoRepeatSubmit noRepeatSubmit) throws Throwable {
         int lockSeconds = noRepeatSubmit.lockTime();
-        int waitTime = noRepeatSubmit.waitTime();
 
         HttpServletRequest request = ServletUtils.getRequest();
         Assert.notNull(request, "request can not null");
@@ -66,7 +56,7 @@ public class RepeatSubmitAspect {
             throw new BaseException("防止重复提交", "603", "出现重复提交");
         }
         /*24小时过期*/
-        redisUtil.set(resultKey, 1, 86400);
+        redisUtil.set(resultKey, 1, lockSeconds);
 
         // 获取锁成功
         log.info(" resultKey = [{}], requestUUID = [{}]", resultKey, requestUUID);

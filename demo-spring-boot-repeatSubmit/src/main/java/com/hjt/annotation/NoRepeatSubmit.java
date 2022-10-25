@@ -17,12 +17,8 @@ import java.lang.annotation.Target;
      * 设置请求锁定时间
      * @return
      */
-    int lockTime() default 5;
+    int lockTime() default 86400;
 
-    /***
-     * redisson方法等待时间
-     * @return
-     */
-    int waitTime() default 3;
+
 }
 
