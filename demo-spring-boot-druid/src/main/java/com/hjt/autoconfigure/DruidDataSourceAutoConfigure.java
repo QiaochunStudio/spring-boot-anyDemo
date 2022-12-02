@@ -17,6 +17,8 @@ package com.hjt.autoconfigure;
 
 import com.alibaba.druid.pool.DruidDataSource;
 
+import com.alibaba.druid.wall.WallConfig;
+import com.alibaba.druid.wall.WallFilter;
 import com.hjt.autoconfigure.properties.DruidStatProperties;
 import com.hjt.autoconfigure.stat.DruidFilterConfiguration;
 import com.hjt.autoconfigure.stat.DruidSpringAopConfiguration;
@@ -55,5 +57,26 @@ public class DruidDataSourceAutoConfigure {
     public DataSource dataSource() {
         LOGGER.info("Init DruidDataSource");
         return new DruidDataSourceWrapper();
+    }
+
+
+    /***
+     *允许批量操作
+     */
+    @Bean
+    public WallFilter wallFilter() {
+        WallFilter wallFilter = new WallFilter();
+        wallFilter.setConfig(wallConfig());
+        return wallFilter;
+    }
+
+    @Bean
+    public WallConfig wallConfig() {
+        WallConfig config = new WallConfig();
+        //允许一次执行多条语句
+        config.setMultiStatementAllow(true);
+        //允许非基本语句的其他语句
+        config.setNoneBaseStatementAllow(true);
+        return config;
     }
 }

@@ -1,15 +1,12 @@
 package com.hjt.util;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.json.JSONObject;
-import cn.hutool.json.JSONUtil;
 import com.hjt.constant.CacheConstants;
 import com.hjt.domain.LoginUser;
 import com.hjt.domain.SysUser;
 import com.hjt.service.RedisService;
 import com.hjt.text.Convert;
 import com.hjt.utils.StringUtils;
-
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 

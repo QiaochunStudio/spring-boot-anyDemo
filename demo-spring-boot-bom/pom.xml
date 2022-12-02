@@ -68,6 +68,7 @@
         <nacos-client.version>2.0.4</nacos-client.version>
         <commons-codec.version>1.15</commons-codec.version>
         <bcprov-jdk15on.version>1.70</bcprov-jdk15on.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
     </properties>
 
     <!--引入公共的模块-->
@@ -424,9 +425,11 @@
                 <version>${bcprov-jdk15on.version}</version>
             </dependency>
 
-
-
-
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
 
 
         </dependencies>
@@ -451,7 +454,7 @@
         <repository>
             <id>nexus</id>
             <name>hjt-maven-release</name>
-            <url>http://116.205.224.23:8082/repository/hjt-maven-release/</url>
+            <url>http://43.138.204.211:8081/repository/hjt-maven-release/</url>
         </repository>
 <!--                <snapshotRepository>-->
 <!--                    <id>yusui-snapshots</id>-->
