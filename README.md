@@ -19,18 +19,23 @@
 
 
 ```java
-    demo-spring-boot-mybatis-plus  mybatis-plus 模块
+    demo-spring-boot-mybatis-plus      mybatis-plus 模块
     demo-spring-boot-common            公共模块
     demo-spring-boot-bom               全部版本控制
-    demo-spring-boot-core            核心模块
-    demo-spring-boot-security         安全模块
+    demo-spring-boot-core              核心模块
+    demo-spring-boot-druid             数据源模块
+    demo-spring-boot-encrypt-data      加解密模块     
+    demo-spring-boot-security          安全模块
     demo-spring-boot-redis             redis模块
-    demo-spring-boot-api            远程调用模块
-    demo-spring-boot-log          日志模块 
-    demo-spring-boot-gateway     网关模块
-    demo-spring-boot-example     各种demo例子
-    demo-spring-boot-generator    代码生成器
-    demo-spring-boot-druid       连接池
+    demo-spring-boot-api               远程调用模块
+    demo-spring-boot-log               日志模块 
+    demo-spring-boot-gateway           网关模块
+    demo-spring-boot-example           各种demo例子
+    demo-spring-boot-generator         代码生成器
+    demo-spring-boot-mongodb           mongodb
+    demo-spring-boot-repeatSubmit      重复提交
+    demo-spring-boot-rocketmq          rocketmq
+    demo-spring-boot-websocket         websocket
 
 ```
 
