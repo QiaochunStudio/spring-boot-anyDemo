@@ -11,8 +11,10 @@
 
 
 项目大体框架介绍：
+![image](https://user-images.githubusercontent.com/76513734/212838519-34c083c1-ebe7-4b0b-aba8-fa3e95237148.png)
 
-![输入图片说明](https://images.gitee.com/uploads/images/2022/0714/142336_104ea56e_7842402.png "image-20220714140444216.png")
+
+
 
 这是公共模块，如果你项目中要引用的话，就直接引入某个模块即可，正在做到轻装上阵。
 
