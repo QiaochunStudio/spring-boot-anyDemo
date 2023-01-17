@@ -69,6 +69,7 @@
         <commons-codec.version>1.15</commons-codec.version>
         <bcprov-jdk15on.version>1.70</bcprov-jdk15on.version>
         <commons-collections.version>3.2.2</commons-collections.version>
+        <spring-boot-starter-data-mongodb.version>3.0.0</spring-boot-starter-data-mongodb.version>
     </properties>
 
     <!--引入公共的模块-->
@@ -431,6 +432,12 @@
                 <version>${commons-collections.version}</version>
             </dependency>
 
+            <!--springboot整合mongodb-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                <version>${spring-boot-starter-data-mongodb.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

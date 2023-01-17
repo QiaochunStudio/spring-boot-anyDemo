@@ -42,6 +42,7 @@
         <module>demo-spring-boot-rocketmq</module>
         <module>demo-spring-boot-encrypt-rsa</module>
         <module>demo-spring-boot-repeatSubmit</module>
+        <module>demo-spring-boot-mongodb</module>
     </modules>
 
     <name>spring-boot-project-demo</name>
