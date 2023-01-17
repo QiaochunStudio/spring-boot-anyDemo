@@ -11,7 +11,8 @@
 
 
 项目大体框架介绍：
-![image](https://user-images.githubusercontent.com/76513734/212838519-34c083c1-ebe7-4b0b-aba8-fa3e95237148.png)
+![image](https://user-images.githubusercontent.com/76513734/212838705-fc34009c-bd80-421a-b96c-a2cc7ee38a16.png)
+
 
 
 
