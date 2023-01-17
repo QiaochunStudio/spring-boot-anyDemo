@@ -39,7 +39,14 @@
     demo-spring-boot-repeatSubmit      重复提交
     demo-spring-boot-rocketmq          rocketmq
     demo-spring-boot-websocket         websocket
-
+    
+    微服务
+    demo-springCloud
+                     ---- demo-springCloud-all-client        全部客户端
+                     ---- demo-springCloud-hystrix           hystrix服务熔断
+                     ---- demo-springCloud-oauth2            oauth2单点登录
+                     ---- demo-springCloud-seata             seata 
+                     ---- demo-springCloud-sentinel-service  sentinel
 ```
 
 如果改好代码，则可以直接打包部署到私服nexus
