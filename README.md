@@ -39,6 +39,7 @@
     demo-spring-boot-repeatSubmit      重复提交
     demo-spring-boot-rocketmq          rocketmq
     demo-spring-boot-websocket         websocket
+    demo-spring-boot-springSecurity    springSecurity模块
     
     微服务
     demo-springCloud
