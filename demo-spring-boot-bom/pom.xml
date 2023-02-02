@@ -70,6 +70,9 @@
         <bcprov-jdk15on.version>1.70</bcprov-jdk15on.version>
         <commons-collections.version>3.2.2</commons-collections.version>
         <spring-boot-starter-data-mongodb.version>3.0.0</spring-boot-starter-data-mongodb.version>
+        <spring-boot-starter-security.version>2.6.3</spring-boot-starter-security.version>
+        <jjwt.version>0.9.0</jjwt.version>
+        <jjwt-api.version>0.11.2</jjwt-api.version>
     </properties>
 
     <!--引入公共的模块-->
@@ -438,6 +441,28 @@
                 <artifactId>spring-boot-starter-data-mongodb</artifactId>
                 <version>${spring-boot-starter-data-mongodb.version}</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring-boot-starter-security.version}</version>
+            </dependency>
+
+            <!--JWT(Json Web Token)登录支持-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${jjwt-api.version}</version>
+            </dependency>
+
+
 
         </dependencies>
     </dependencyManagement>

@@ -1,0 +1,13 @@
+spring:
+  redis:
+    port: 6379
+    host: 43.138.204.211
+    password: 970628hjt
+    database: 2
+    #redis超时时间
+    lettuce:
+      shutdown-timeout: 100
+    #redisson配置
+    redisson:
+      addressUrl: 43.138.204.211:6379
+      password: 970628hjt

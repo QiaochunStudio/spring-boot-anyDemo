@@ -1,0 +1,53 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://43.138.204.211:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 970628hjt.
+  redis:
+    port: 6379
+    host: 43.138.204.211
+    password: 970628hjt
+    database: 2
+    #redis超时时间
+    lettuce:
+      shutdown-timeout: 100
+    #redisson配置
+    redisson:
+      addressUrl: 43.138.204.211:6379
+      password: 970628hjt
+
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath*:com/**/mapper/*.xml
+
+# 自定义redis key
+redis:
+  key:
+    prefix:
+      authCode: "portal:authCode:"
+    expire:
+      authCode: 120 # 验证码超期时间
+
+# 自定义jwt key
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mySecret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: Bearer  #JWT负载中拿到开头
+
+knife4j:
+  enable: true
+  # 开启生产环境屏蔽  true 关闭swagger   false 开启swagger
+  production: false
+
+  #开启swagger访问需要密码配置
+#  basic:
+#      enable: true
+#      # Basic认证用户名
+#      username: test
+#      # Basic认证密码
+#      password: 123
