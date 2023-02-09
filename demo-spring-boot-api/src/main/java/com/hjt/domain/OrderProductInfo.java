@@ -27,21 +27,21 @@ public class OrderProductInfo extends Model<OrderProductInfo> {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键")
+    //@ApiModelProperty(value = "主键")
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty(value = "订单id")
+    //@ApiModelProperty(value = "订单id")
     private Long orderId;
 
 
-    @ApiModelProperty(value = "用户id")
+    //@ApiModelProperty(value = "用户id")
     private Long userId;
 
-    @ApiModelProperty(value = "商品id")
+    //@ApiModelProperty(value = "商品id")
     private Long productId;
 
-    @ApiModelProperty(value = "数量")
+    //@ApiModelProperty(value = "数量")
     private Long count;
 
 

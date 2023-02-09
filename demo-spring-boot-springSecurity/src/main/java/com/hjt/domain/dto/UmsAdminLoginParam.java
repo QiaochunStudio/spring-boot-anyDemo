@@ -7,9 +7,9 @@ import io.swagger.annotations.ApiModelProperty;
  * Created by macro on 2018/4/26.
  */
 public class UmsAdminLoginParam {
-    @ApiModelProperty(value = "用户名", required = true)
+    //@ApiModelProperty(value = "用户名", required = true)
     private String username;
-    @ApiModelProperty(value = "密码", required = true)
+    //@ApiModelProperty(value = "密码", required = true)
     private String password;
 
     public String getUsername() {

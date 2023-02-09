@@ -27,22 +27,22 @@ import lombok.experimental.Accessors;
 @ApiModel(value="SysUser", description="")
 public class SysUser extends Model<SysUser> {
 
-    @ApiModelProperty(value = "用户ID")
+    //@ApiModelProperty(value = "用户ID")
     @ExcelProperty("用户ID")
     @ColumnWidth(10)
     private Long userId;
 
-    @ApiModelProperty(value = "部门ID")
+    //@ApiModelProperty(value = "部门ID")
     @ExcelProperty("部门ID")
     @ColumnWidth(10)
     private Long deptId;
 
-    @ApiModelProperty(value = "用户账号")
+    //@ApiModelProperty(value = "用户账号")
     @ExcelProperty("用户账号")
     @ColumnWidth(10)
     private String userName;
 
-    @ApiModelProperty(value = "用户昵称")
+    //@ApiModelProperty(value = "用户昵称")
     @ExcelProperty("用户昵称")
     @ColumnWidth(10)
     private String nickName;

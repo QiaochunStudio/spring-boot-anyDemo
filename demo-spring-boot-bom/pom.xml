@@ -56,7 +56,8 @@
         <spring-security-rsa.version>1.0.11.RELEASE</spring-security-rsa.version>
         <netty.version>4.1.67.Final</netty.version>
         <rocketmq.version>2.2.2</rocketmq.version>
-        <minio-version>8.0.3</minio-version>
+<!--        <minio-version>8.0.3</minio-version>-->
+        <minio-version>8.3.3</minio-version>
         <poi-ooxml.version>4.1.2</poi-ooxml.version>
         <poi.version>4.1.2</poi.version>
         <metadata-extractor.version>2.11.0</metadata-extractor.version>
@@ -73,6 +74,7 @@
         <spring-boot-starter-security.version>2.6.3</spring-boot-starter-security.version>
         <jjwt.version>0.9.0</jjwt.version>
         <jjwt-api.version>0.11.2</jjwt-api.version>
+        <okhttp.version>4.9.0</okhttp.version>
     </properties>
 
     <!--引入公共的模块-->
@@ -226,6 +228,20 @@
                 <version>${demo-spring-boot.version}</version>
             </dependency>
 
+            <!--mongodb模块-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-mongodb</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+
+            <!--minio切片上传-->
+            <dependency>
+                <groupId>com.hjt</groupId>
+                <artifactId>demo-spring-boot-minio-slice-upload</artifactId>
+                <version>${demo-spring-boot.version}</version>
+            </dependency>
+
             <!-- Hibernate Validator -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -365,6 +381,12 @@
                 <groupId>io.minio</groupId>
                 <artifactId>minio</artifactId>
                 <version>${minio-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
             </dependency>
             <!-- excel工具 -->
             <dependency>

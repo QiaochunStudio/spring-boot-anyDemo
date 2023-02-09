@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  http:
+    multipart:
+      max-file-size: 250Mb
+      max-request-size: 3000Mb
+  application:
+    name: monio-multipart
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+minio:
+  endpoint: http://hjt-code:9000
+  accessKey: minio
+  secretKey: minio123456
+  bucketName: share
+  downloadUri: http://hjt-code:9000
+#  downloadUri: http://43.138.204.211:9101
+  path: http://hjt-code:9000
+#  path: http://43.138.204.211:9100
+

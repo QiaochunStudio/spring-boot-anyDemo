@@ -44,6 +44,7 @@
         <module>demo-spring-boot-repeatSubmit</module>
         <module>demo-spring-boot-mongodb</module>
         <module>demo-spring-boot-springSecurity</module>
+        <module>demo-spring-boot-minio-slice-upload</module>
     </modules>
 
     <name>spring-boot-project-demo</name>

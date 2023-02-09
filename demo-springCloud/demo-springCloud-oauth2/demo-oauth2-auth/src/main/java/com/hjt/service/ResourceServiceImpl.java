@@ -13,7 +13,8 @@ import java.util.TreeMap;
 
 /**
  * 资源与角色匹配关系管理业务类
- * Created by hjt on 2020/6/19.
+ * Created by hjt on 2020/6/
+ *
  */
 @Service
 public class ResourceServiceImpl {
@@ -27,7 +28,11 @@ public class ResourceServiceImpl {
     public void initData() {
         resourceRolesMap = new TreeMap<>();
         resourceRolesMap.put("/api/hello", CollUtil.toList("ADMIN"));
+//        resourceRolesMap.put("/api/hello", CollUtil.toList("TEST"));
         resourceRolesMap.put("/api/user/currentUser", CollUtil.toList("ADMIN", "TEST"));
         redisTemplate.opsForHash().putAll(RedisConstant.RESOURCE_ROLES_MAP, resourceRolesMap);
     }
+
+
+
 }
