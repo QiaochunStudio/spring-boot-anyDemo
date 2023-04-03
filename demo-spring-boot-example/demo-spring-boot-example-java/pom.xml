@@ -18,6 +18,17 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.11</version>
+        </dependency>
+        <!--分页-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.0.4 </version>
+        </dependency>
 
         <!--短信服务-->
         <dependency>

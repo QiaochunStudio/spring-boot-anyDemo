@@ -15,7 +15,7 @@ public class HashMapTest {
         // 添加键值对
         Sites.put(1, "Google");
         Sites.put(2, "Runoob");
-        Sites.put(3, "Taobao");
+        Sites.put(5, "Taobao");
         Sites.put(4, "Zhihu");
         // 输出 key 和 value
         //第一种遍历方法

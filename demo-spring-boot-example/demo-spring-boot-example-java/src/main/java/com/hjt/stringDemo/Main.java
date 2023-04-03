@@ -41,8 +41,11 @@ public class Main {
 //        for(int i = 0;i<split.length;i++){
 //            System.out.println("222:"+split[i]);
 //        }
-        System.out.println(new Date().toString());
+//        System.out.println(new Date().toString());
 
+        String str = "5YRT Vitality: AOAPR";
+        String replace = str.replace(" Vitality:", "");
+        System.out.println("输出："+replace);
 
     }
 }
