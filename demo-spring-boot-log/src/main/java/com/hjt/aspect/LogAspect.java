@@ -108,7 +108,8 @@ public class LogAspect
             }
             //处理空指针异常
             if(ObjectUtil.isNull(e)){
-                operLog.setJsonResult("java.lang.NullPointerException");
+                Throwable cause = e.getCause();
+                operLog.setErrorMsg(cause.getMessage().toString());
             }
             //不是空指针异常
             else {
