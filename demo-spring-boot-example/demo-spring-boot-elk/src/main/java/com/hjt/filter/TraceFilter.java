@@ -18,7 +18,9 @@ public class TraceFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        // "traceId"
+        // "traceId" 正常来说这个应该是前端传给后端得 这个只是作为后端demo得演示
+        String requestNo = httpServletRequest.getHeader("request_no");
+        System.out.println("输出："+requestNo);
         MDC.put("traceid", getTraceId());
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }

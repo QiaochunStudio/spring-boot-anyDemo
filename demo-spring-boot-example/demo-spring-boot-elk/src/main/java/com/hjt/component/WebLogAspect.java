@@ -29,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+
 /**
  * 统一日志处理切面
  * Created by macro on 2018/4/26.
@@ -57,8 +59,14 @@ public class WebLogAspect {
         //获取当前请求对象
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
+
+        //前端传每次请求得id
+        String requestNo = request.getHeader("request_no");
         //记录请求信息
         WebLog webLog = new WebLog();
+        if(!StringUtils.isEmpty(requestNo)){
+            webLog.setRequestNo(requestNo);
+        }
         Object result = joinPoint.proceed();
         Signature signature = joinPoint.getSignature();
         MethodSignature methodSignature = (MethodSignature) signature;

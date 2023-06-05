@@ -55,6 +55,12 @@ public class WebLog {
      */
     private Object parameter;
 
+
+    /**
+     * 前端传得请求参数id
+     */
+    private String requestNo;
+
     /**
      * 请求返回的结果
      */
@@ -146,5 +152,13 @@ public class WebLog {
 
     public void setResult(Object result) {
         this.result = result;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
     }
 }
