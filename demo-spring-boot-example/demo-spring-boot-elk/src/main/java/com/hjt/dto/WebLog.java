@@ -1,9 +1,12 @@
 package com.hjt.dto;
 
+import lombok.Data;
+
 /**
  * Controller层的日志封装类
  * Created by macro on 2018/4/26.
  */
+@Data
 public class WebLog {
     /**
      * 操作描述

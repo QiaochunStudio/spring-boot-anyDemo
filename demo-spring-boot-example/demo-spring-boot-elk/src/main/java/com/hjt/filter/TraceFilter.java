@@ -20,6 +20,7 @@ public class TraceFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         // "traceId" 正常来说这个应该是前端传给后端得 这个只是作为后端demo得演示
         String requestNo = httpServletRequest.getHeader("request_no");
+        log.info("-----输出：requesetNo,{}",requestNo);
         System.out.println("输出："+requestNo);
         MDC.put("traceid", getTraceId());
         filterChain.doFilter(httpServletRequest, httpServletResponse);
