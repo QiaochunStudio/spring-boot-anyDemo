@@ -1,6 +1,5 @@
 package com.hjt.controller;
 
-import com.hjt.annotation.Log;
 import com.hjt.common.api.CommonPage;
 import com.hjt.common.api.CommonResult;
 import com.hjt.mbg.model.PmsBrand;
@@ -31,7 +30,7 @@ public class PmsBrandController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
 
-    @Log(title = "测试获取报错")
+
     @ApiOperation("获取所有品牌列表")
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
     @ResponseBody

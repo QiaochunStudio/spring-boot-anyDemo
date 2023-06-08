@@ -107,12 +107,12 @@ public class LogAspect
                 operLog.setOperName(username);
             }
             //处理空指针异常
-            if(ObjectUtil.isNull(e)){
-                Throwable cause = e.getCause();
-                operLog.setErrorMsg(cause.getMessage().toString());
-            }
-            //不是空指针异常
-            else {
+//            if(ObjectUtil.isNull(e)){
+//                Throwable cause = e.getCause();
+//                operLog.setErrorMsg(cause.getMessage().toString());
+//            }
+//            //不是空指针异常
+//            else {
                 //把自定义异常的返回结果封装成json
                 BaseException exceptionData = (BaseException)e;
                 if(ObjectUtil.isNotNull(exceptionData)){
@@ -141,7 +141,7 @@ public class LogAspect
                     String strJsonResult = json.toStringPretty();
                     operLog.setJsonResult(strJsonResult);
                 }
-            }
+//            }
 
             // 设置方法名称
             String className = joinPoint.getTarget().getClass().getName();
