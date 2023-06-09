@@ -6,6 +6,7 @@ import com.hjt.domain.LoginUser;
 import com.hjt.domain.R;
 import com.hjt.domain.SysUser;
 import com.hjt.factory.RemoteUserFallbackFactory;
+import com.hjt.interceptor.FeignClientsConfigurationCustom;
 import com.hjt.myException.AjaxResult;
 import com.hjt.vo.DeptUserVO;
 import com.hjt.vo.UserInfoListVO;
@@ -21,7 +22,7 @@ import java.util.Set;
  *
  * @author hjt
  */
-@FeignClient(contextId = "remoteUserService", value = ServiceNameConstants.HJT_PLATFORM_SYSTEM, fallbackFactory = RemoteUserFallbackFactory.class)
+@FeignClient(contextId = "remoteUserService", value = ServiceNameConstants.HJT_PLATFORM_SYSTEM, fallbackFactory = RemoteUserFallbackFactory.class,configuration = FeignClientsConfigurationCustom.class )
 public interface RemoteUserService
 {
     /**
