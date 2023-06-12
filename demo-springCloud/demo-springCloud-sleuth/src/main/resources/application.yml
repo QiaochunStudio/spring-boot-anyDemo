@@ -1,0 +1,10 @@
+server:
+  port: 8989
+
+logging:
+  config: classpath:logback-spring.xml
+
+spring:
+  application:
+    name: sleuth-demo
+

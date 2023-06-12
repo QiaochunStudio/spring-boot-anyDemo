@@ -24,6 +24,7 @@
         <module>demo-springCloud-oauth2</module>
         <module>demo-springCloud-seata</module>
         <module>demo-springCloud-all-client</module>
+        <module>demo-springCloud-sleuth</module>
     </modules>
 
 

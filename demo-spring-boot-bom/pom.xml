@@ -75,6 +75,7 @@
         <jjwt.version>0.9.0</jjwt.version>
         <jjwt-api.version>0.11.2</jjwt-api.version>
         <okhttp.version>4.9.0</okhttp.version>
+        <logstash.version>4.11</logstash.version>
     </properties>
 
     <!--引入公共的模块-->
@@ -114,12 +115,7 @@
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j-sping-boot-starter}</version>
             </dependency>
-            <!--生产环境swagger配置-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${springboot-web-version}</version>
-            </dependency>
+
             <!-- shardingjdbc -->
             <dependency>
                 <groupId>io.shardingjdbc</groupId>
@@ -310,12 +306,6 @@
                 <version>${pagehelper-spring-boot-starter}</version>
             </dependency>
 
-            <!-- SpringBoot Admin -->
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-server</artifactId>
-                <version>${spring-boot-admin.version}</version>
-            </dependency>
             <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -483,25 +473,31 @@
                 <artifactId>jjwt-api</artifactId>
                 <version>${jjwt-api.version}</version>
             </dependency>
+            <!--elk中的logstash-->
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash.version}</version>
+            </dependency>
 
 
 
         </dependencies>
     </dependencyManagement>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <source>${java.version}</source>-->
+<!--                    <target>${java.version}</target>-->
+<!--                    <encoding>${project.build.sourceEncoding}</encoding>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
     <!--打包到自己的依赖-->
     <distributionManagement>
