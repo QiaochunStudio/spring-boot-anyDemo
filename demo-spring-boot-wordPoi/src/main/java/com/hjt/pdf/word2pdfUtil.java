@@ -8,7 +8,7 @@ import lombok.Cleanup;
 import java.io.*;
 
 /**
- * @author wsdaoy
+ * @author hjt
  * @date 2023/6/25
  **/
 public class word2pdfUtil {
