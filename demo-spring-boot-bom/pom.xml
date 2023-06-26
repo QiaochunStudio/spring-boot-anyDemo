@@ -76,6 +76,7 @@
         <jjwt-api.version>0.11.2</jjwt-api.version>
         <okhttp.version>4.9.0</okhttp.version>
         <logstash.version>4.11</logstash.version>
+        <poi-tl-version>1.12.0</poi-tl-version>
     </properties>
 
     <!--引入公共的模块-->
@@ -460,7 +461,6 @@
                 <artifactId>spring-boot-starter-security</artifactId>
                 <version>${spring-boot-starter-security.version}</version>
             </dependency>
-
             <!--JWT(Json Web Token)登录支持-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
@@ -479,6 +479,13 @@
                 <artifactId>logstash-logback-encoder</artifactId>
                 <version>${logstash.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.deepoove</groupId>
+                <artifactId>poi-tl</artifactId>
+                <version>${poi-tl-version}</version>
+            </dependency>
+
 
 
 

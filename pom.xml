@@ -45,6 +45,7 @@
         <module>demo-spring-boot-mongodb</module>
         <module>demo-spring-boot-springSecurity</module>
         <module>demo-spring-boot-minio-slice-upload</module>
+        <module>demo-spring-boot-wordPoi</module>
     </modules>
 
     <name>spring-boot-project-demo</name>

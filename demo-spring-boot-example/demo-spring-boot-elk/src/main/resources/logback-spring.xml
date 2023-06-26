@@ -65,7 +65,7 @@
     </appender>
 
 
-
+    <springProperty scope="context" name="applicationName" source="spring.application.name"/>
     <!--输出到logstash的appender-->
     <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <!--可以访问的logstash日志收集端口-->

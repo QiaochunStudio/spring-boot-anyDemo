@@ -3,6 +3,8 @@ package com.hjt.myException;
 
 import com.hjt.constant.HttpStatus;
 import com.hjt.utils.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 
@@ -13,6 +15,8 @@ import java.util.HashMap;
  */
 
 public class AjaxResult extends HashMap<String, Object> {
+    private static final Logger log = LoggerFactory.getLogger(AjaxResult.class);
+
     private static final long serialVersionUID = 1L;
 
     /**
@@ -136,6 +140,7 @@ public class AjaxResult extends HashMap<String, Object> {
      * @return 成功消息
      */
     public static AjaxResult success(String msg, Object data) {
+        log.info("-----操作成功----{}",msg+","+data);
         return new AjaxResult(HttpStatus.SUCCESS, msg, data);
     }
 
@@ -147,6 +152,7 @@ public class AjaxResult extends HashMap<String, Object> {
      * @return 成功消息
      */
     public static AjaxResult success(String msg, Object data, String module) {
+        log.info("-----操作成功----{}",msg+","+data+","+module);
         return new AjaxResult(HttpStatus.SUCCESS, msg, data, module);
     }
 
@@ -177,6 +183,7 @@ public class AjaxResult extends HashMap<String, Object> {
      * @return 警告消息
      */
     public static AjaxResult error(String msg, Object data) {
+        log.error("-----操作失败----{}",HttpStatus.ERROR+","+msg+","+data);
         return new AjaxResult(HttpStatus.ERROR, msg, data);
     }
 
@@ -201,6 +208,7 @@ public class AjaxResult extends HashMap<String, Object> {
      * @return 警告消息
      */
     public static AjaxResult error(int code, String msg, Object data, String module) {
+        log.error("-----操作失败----{}",code+","+msg+","+data+","+module);
         return new AjaxResult(code, msg, data, module);
     }
 }
