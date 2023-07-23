@@ -1,0 +1,16 @@
+binlog:
+  datasource:
+    warnLog: true
+    open: true
+    classPath: classpath*:com/example/listener/*.class
+    data-source-configs:
+      - url: jdbc:mysql://hjt-code:3306/rizhi?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+        password: 970417hxl.
+        userName: root
+        serverId: 1
+        #排除那些表不需要监控
+        tableFilters:
+#          - t_test
+          - test
+          - aa
+

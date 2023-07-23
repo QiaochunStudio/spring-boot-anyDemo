@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "binlog.datasource",
+      "type": "com.example.config.BinLogConfig",
+      "sourceType": "com.example.config.BinLogConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "binlog.datasource.data-source-configs",
+      "type": "java.util.List<com.example.config.BinLogConfig$DataSourceConfig>",
+      "sourceType": "com.example.config.BinLogConfig"
+    }
+  ],
+  "hints": []
+}
