@@ -19,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
 @MapperScan("com.hjt.test.mapper")
 public class MyBatisPlusTenantIdConfig {
 
+
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         final MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();

@@ -26,6 +26,14 @@ public class DateTest {
         String dateFormat = DateUtil.format(date, "yyyyMMdd");
         System.out.println("dateFormat:"+format);
 
+        DateTime parse1 = DateUtil.parse("2023-08-05 00:00:30");
+        String formatDate = DateUtil.format(parse1, "HH:mm:ss");
+        System.out.println("输出:"+formatDate);
+
+
+
+
+
 
     }
 }

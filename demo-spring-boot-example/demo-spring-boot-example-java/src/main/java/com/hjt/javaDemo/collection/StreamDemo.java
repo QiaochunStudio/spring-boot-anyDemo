@@ -370,14 +370,15 @@ public class StreamDemo {
 //        testStreamReduce();
 //        testStreamImport();
 //        streamAnyMatch();
-        Set<String> set = new HashSet();
-
-        String s= "['model:file:removeBucket']";
-        String[] split = s.split(",");
-        set = new HashSet(Arrays.asList(split));
-        System.out.println(set);
-        boolean b = hasPermissions2(set, "model:file:removeBucket");
-        System.out.println("222:"+b);
+//        Set<String> set = new HashSet();
+//
+//        String s= "['model:file:removeBucket']";
+//        String[] split = s.split(",");
+//        set = new HashSet(Arrays.asList(split));
+//        System.out.println(set);
+//        boolean b = hasPermissions2(set, "model:file:removeBucket");
+//        System.out.println("222:"+b);
+        testStreamSort();
     }
 
 }

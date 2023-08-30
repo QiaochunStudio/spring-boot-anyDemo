@@ -12,7 +12,7 @@
 		}
 		if (window.WebSocket) {
 			// socket = new WebSocket("ws://192.168.1.81:7070/ws");
-			socket = new WebSocket("ws://192.168.1.102:80/test");
+			socket = new WebSocket("ws://192.168.0.101:80/test");
 			socket.onmessage = function(event) {
 				var ta = document.getElementById('responseText');
 				ta.value = ta.value + '\n' + event.data
@@ -50,6 +50,6 @@
 	</form>
 	<br> 
 	<br> 
-	<a href="https://waylau.com/" >更多例子请访问  waylau.com</a>
+	<a href="https://waylau.com/" >更多例子请访问</a>
 </body>
 </html>
