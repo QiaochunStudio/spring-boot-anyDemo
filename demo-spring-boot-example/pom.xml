@@ -20,7 +20,7 @@
         <module>demo-spring-boot-example-redisson</module>
         <module>demo-spring-boot-example-pay</module>
         <module>demo-spring-boot-elk</module>
-        <module>demo-spring-boot-export-mysql-word</module>
+        <module>demo-spring-boot-example-threadpool</module>
     </modules>
 
     <dependencies>
