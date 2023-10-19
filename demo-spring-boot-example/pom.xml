@@ -21,6 +21,7 @@
         <module>demo-spring-boot-example-pay</module>
         <module>demo-spring-boot-elk</module>
         <module>demo-spring-boot-example-threadpool</module>
+        <module>demo-spring-boot-example-export-mysql-word</module>
     </modules>
 
     <dependencies>
