@@ -47,6 +47,7 @@
         <module>demo-spring-boot-minio-slice-upload</module>
         <module>demo-spring-boot-wordPoi</module>
         <module>demo-spring-boot-binlog</module>
+        <module>demo-spring-boot-network-netty</module>
     </modules>
 
     <name>spring-boot-project-demo</name>
@@ -159,7 +160,7 @@
         <repository>
             <id>nexus</id>
             <name>hjt-maven-release</name>
-            <url>http://43.138.204.211:8081/repository/hjt-maven-release/</url>
+            <url>http://110.41.146.107:8081/repository/hjt-maven-release/</url>
         </repository>
 
         <!--        <snapshotRepository>-->

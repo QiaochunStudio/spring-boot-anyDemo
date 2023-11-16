@@ -2,10 +2,12 @@ package com.hjt.javaDemo.collection;
 
 import com.hjt.javaDemo.collection.domain.Person;
 import com.hjt.javaDemo.collection.domain.Pig;
+import com.hjt.javaDemo.collection.domain.StudentInfo;
 import com.hjt.javaDemo.collection.domain.User;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.PatternMatchUtils;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -163,10 +165,52 @@ public class StreamDemo {
         System.out.println("优化排序之后的数据:" + list12);
         //排序之后的数据:[{"id":1,"name":"pancm1"}, {"id":2,"name":"pancm2"}, {"id":3,"name":"pancm3"}]
         //优化排序之后的数据:[{"id":1,"name":"pancm1"}, {"id":2,"name":"pancm2"}, {"id":3,"name":"pancm3"}]
-
-
-
     }
+
+    /***
+     * 排序
+     */
+    public static void testAllStreamSort() {
+        //测试数据，请不要纠结数据的严谨性
+        List<StudentInfo> studentList = new ArrayList<>();
+        studentList.add(new StudentInfo("李小明",true,18,1.76, LocalDate.of(2001,3,23)));
+        studentList.add(new StudentInfo("张小丽",false,18,1.61,LocalDate.of(2001,6,3)));
+        studentList.add(new StudentInfo("王大朋",true,19,1.82,LocalDate.of(2000,3,11)));
+        studentList.add(new StudentInfo("陈小跑",false,17,1.67,LocalDate.of(2002,10,18)));
+
+//        /***
+//         * 使用年龄进行升序排序
+//         */
+//        //排序前输出
+//        StudentInfo.printStudents(studentList);
+////按年龄排序(Integer类型)
+//        List<StudentInfo> studentsSortName = studentList.stream().sorted(Comparator.comparing(StudentInfo::getAge)).collect(Collectors.toList());
+////排序后输出
+//        StudentInfo.printStudents(studentsSortName);
+
+//        /***
+//         *  使用年龄进行降序排序（使用reversed()方法）
+//         */
+//        //排序前输出
+//        StudentInfo.printStudents(studentList);
+////按年龄排序(Integer类型)
+//        List<StudentInfo> studentsSortName1 = studentList.stream().sorted(Comparator.comparing(StudentInfo::getAge).reversed()).collect(Collectors.toList());
+////排序后输出
+//        StudentInfo.printStudents(studentsSortName1);
+//
+        /***
+         *  使用年龄进行降序排序，年龄相同再使用身高升序排序
+         */
+        //排序前输出
+        StudentInfo.printStudents(studentList);
+        //按年龄排序(Integer类型)
+        List<StudentInfo> studentsSortName2 = studentList.stream()
+                .sorted(Comparator.comparing(StudentInfo::getAge).reversed().thenComparing(StudentInfo::getHeight))
+                .collect(Collectors.toList());
+        //排序后输出
+        StudentInfo.printStudents(studentsSortName2);
+    }
+
 
     /***
      * 去重
@@ -378,7 +422,8 @@ public class StreamDemo {
 //        System.out.println(set);
 //        boolean b = hasPermissions2(set, "model:file:removeBucket");
 //        System.out.println("222:"+b);
-        testStreamSort();
+//        testStreamSort();
+        testAllStreamSort();
     }
 
 }

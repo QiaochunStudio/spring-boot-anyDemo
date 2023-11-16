@@ -49,5 +49,8 @@ public class BigDecimalDemo {
         }
         System.out.println("total:"+total);
 
+
+
+
     }
 }

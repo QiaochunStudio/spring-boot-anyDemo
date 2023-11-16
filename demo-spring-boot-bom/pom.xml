@@ -54,7 +54,7 @@
         <log4j2.version>2.15.0</log4j2.version>
         <nimbus-jose-jwt.version>9.22</nimbus-jose-jwt.version>
         <spring-security-rsa.version>1.0.11.RELEASE</spring-security-rsa.version>
-        <netty.version>4.1.67.Final</netty.version>
+        <netty.version>4.1.66.Final</netty.version>
         <rocketmq.version>2.2.2</rocketmq.version>
 <!--        <minio-version>8.0.3</minio-version>-->
         <minio-version>8.3.3</minio-version>
@@ -79,6 +79,8 @@
         <poi-tl-version>1.12.0</poi-tl-version>
         <mysql-binlog-connector-java.version>0.21.0</mysql-binlog-connector-java.version>
         <guava.version>30.1.1-jre</guava.version>
+        <netty-all.version>4.1.66.Final</netty-all.version>
+        <jackson.core.version>2.10.1</jackson.core.version>
     </properties>
 
     <!--引入公共的模块-->
@@ -228,7 +230,6 @@
                 <artifactId>demo-spring-boot-rocketmq</artifactId>
                 <version>${demo-spring-boot.version}</version>
             </dependency>
-
 
             <!--微服务模块-->
             <dependency>
@@ -523,7 +524,7 @@
         <repository>
             <id>nexus</id>
             <name>hjt-maven-release</name>
-            <url>http://43.138.204.211:8081/repository/hjt-maven-release/</url>
+            <url>http://110.41.146.107:8081/repository/hjt-maven-release/</url>
         </repository>
 <!--                <snapshotRepository>-->
 <!--                    <id>yusui-snapshots</id>-->

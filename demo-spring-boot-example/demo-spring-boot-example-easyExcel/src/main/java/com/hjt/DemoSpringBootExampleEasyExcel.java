@@ -2,11 +2,13 @@ package com.hjt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author hjt
  * @date:2022/9/4
  */
+@EnableScheduling //开启定时任务
 @SpringBootApplication
 public class DemoSpringBootExampleEasyExcel {
     public static void main(String[] args) {
