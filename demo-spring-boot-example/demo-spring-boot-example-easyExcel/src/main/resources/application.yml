@@ -13,7 +13,7 @@ spring:
   datasource:
     url: jdbc:mysql://hjt-code:3306/hjt-data?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
     username: root
-    password: 970417hxl.
+    password: 970628hjt.
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
       initial-size: 10 #连接池初始化大小

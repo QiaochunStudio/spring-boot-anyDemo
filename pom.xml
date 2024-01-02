@@ -48,6 +48,7 @@
         <module>demo-spring-boot-wordPoi</module>
         <module>demo-spring-boot-binlog</module>
         <module>demo-spring-boot-network-netty</module>
+        <module>demo-spring-boot-mqtt</module>
     </modules>
 
     <name>spring-boot-project-demo</name>

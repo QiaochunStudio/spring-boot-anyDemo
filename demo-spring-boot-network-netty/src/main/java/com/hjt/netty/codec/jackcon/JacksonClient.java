@@ -22,7 +22,7 @@ public class JacksonClient {
 
     public static void main(String[] args) throws Exception{
 //        new JacksonClient("localhost", 8082).run();
-        new JacksonClient("192.168.0.56", 8083).run();
+        new JacksonClient("192.168.0.60", 8083).run();
     }
 
     private final String host;

@@ -1,0 +1,19 @@
+server:
+  port: 8099
+#mqtt配置
+smkj:
+  mqtt:
+    host: tcp://110.41.146.107:1883
+    clientid: mqttjs_cloud
+    username:
+    password:
+    timeout: 1000
+    keepalive: 10
+    #设置回调topic
+    topics:
+      - aabb
+      - test_queue
+    #设置回调qos
+    qos:
+      - 0
+      - 0
