@@ -1,4 +1,4 @@
-package com.hjt.listener;
+package com.hjt.consumer;
 
 import com.alibaba.fastjson.JSON;
 import com.hjt.annotation.RowListener;

@@ -49,6 +49,7 @@
         <module>demo-spring-boot-binlog</module>
         <module>demo-spring-boot-network-netty</module>
         <module>demo-spring-boot-mqtt</module>
+        <module>demo-spring-boot-rabbitmq</module>
     </modules>
 
     <name>spring-boot-project-demo</name>
