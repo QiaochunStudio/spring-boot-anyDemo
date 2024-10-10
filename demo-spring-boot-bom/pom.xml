@@ -532,7 +532,7 @@
         <repository>
             <id>nexus</id>
             <name>hjt-maven-release</name>
-            <url>http://110.41.146.107:8081/repository/hjt-maven-release/</url>
+            <url>http://43.136.94.22:18081/repository/hjt-maven-release/</url>
         </repository>
 <!--                <snapshotRepository>-->
 <!--                    <id>yusui-snapshots</id>-->
